@@ -2,7 +2,7 @@
    FOOTER
    ========================================================================== */
 .footer {
-  height: 5rem;
+  height: 4rem;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -10,7 +10,7 @@
   z-index: 10;
   background: @color-gray;
   cursor: default;
-  transform: translate3d(0, 5rem, 0);
+  transform: translate3d(0, 4rem, 0);
   transition: transform @duration-l;
 
   .fp-viewing-section-5 & {
@@ -19,18 +19,17 @@
   }
 
   .wrapper {
-    max-width: 1280px;
     height: 100%;
-    margin-left: auto;
     position: relative;
+    display: flex;
   }
 
   .copyright {
-    height: 1.5rem;
+    width: 100%;
     margin: auto 0;
-    position: absolute;
-    top: 0;
-    left: 2.5rem;
+    font-size: 0.667em;
+    line-height: 1.2rem;
     bottom: 0;
+    text-align: center;
   }
 }

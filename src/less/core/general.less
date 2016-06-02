@@ -10,12 +10,23 @@ html {
   height: 100%;
   padding: 0;
   margin: 0;
-  font: 100%/1.5rem @font-default;
+  font: 75%/1.5em @font-default;
   color: @color-white;
   letter-spacing: .03em;
   background: @color-black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media @mobile-old {
+    font-size: 62.5%;
+  }
+  @media @tablet-sm {
+    font-size: 100%;
+  }
+  @media @desktop {
+    font-size: 125%;
+    line-height: 1.6em;
+  }
 }
 body {
   width: 100%;
@@ -32,6 +43,10 @@ body {
 p, ul, ol, dl {
   margin-top: @margin-md;
   margin-bottom: @margin-md;
+  @media @desktop {
+    margin-top: @margin-lg;
+    margin-bottom: @margin-lg;
+  }
 }
 :focus { outline: -webkit-focus-ring-color auto 0; }
 a {
@@ -41,22 +56,15 @@ a {
 figure {
   margin: @margin-md 0;
   img { max-width: 100%; height: auto; display: block; }
+  @media @desktop {
+    margin: @margin-lg 0;
+  }
 }
 audio, canvas, img, video { vertical-align: middle; }
 /*** HEADINGS ***/
-h1, .h1 {
-}
-h2, .h2 {
-}
-h3, .h3 {
-}
-h4, .h4 {
-}
-h5, .h5 {
-}
-h6, .h6 {
-}
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: @font-heading;
+  letter-spacing: -.01em;
   & + p { margin-top: 0; }
 }
 /* ==========================================================================
@@ -79,8 +87,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 /*** .WRAPPER ***/
 .wrapper {
   max-width: @max-width;
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 2rem;
+  margin-left: 2rem;
   &:after { .clearfix; }
 
   @media @desktop {

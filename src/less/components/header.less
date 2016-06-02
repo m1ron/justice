@@ -2,7 +2,7 @@
    HEADER
    ========================================================================== */
 .header {
-  height: 5rem;
+  height: 4rem;
   position: absolute;
   top: 0;
   right: 0;
@@ -10,8 +10,13 @@
   z-index: 10;
   background: @color-blue;
   cursor: default;
-  transform: translate3d(0, -5rem, 0);
+  transform: translate3d(0, -4rem, 0);
   transition: transform @duration-l;
+
+  @media @desktop {
+    height: 5rem;
+    transform: translate3d(0, -5rem, 0);
+  }
 
   .fp-viewing-section-1 & {
     transform: translate3d(0, 0, 0);
@@ -19,22 +24,24 @@
   }
 
   .wrapper {
-    max-width: 1280px;
     height: 100%;
-    margin-left: auto;
     position: relative;
   }
 
   .logo {
-    width: 100px;
+    width: 5rem;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -1.5rem;
     bottom: 0;
     user-select: none;
+    @media @mobile-md {
+      left: 0;
+    }
+
     img {
       width: auto;
-      height: 60px;
+      height: 3.5rem;
       margin: auto;
       display: block;
       position: absolute;
@@ -42,6 +49,9 @@
       right: 0;
       bottom: 0;
       left: 0;
+      @media @desktop {
+        height: 4rem;
+      }
     }
   }
 
@@ -50,8 +60,15 @@
     margin: auto 0;
     position: absolute;
     top: 0;
-    left: 100px;
+    left: 4rem;
+    right: 0;
     bottom: 0;
+    text-align: center;
+
+    @media @mobile-md {
+      left: 5rem;
+      text-align: left;
+    }
 
     a {
       padding-left: 1.5rem;
@@ -62,8 +79,8 @@
       &[href^="tel:"], &[href^="mailto:"] {
         &:before {
           .pseudo;
-          width: 20px;
-          height: 20px;
+          width: 1.25rem;
+          height: 1.25rem;
           margin: auto;
           position: absolute;
           top: 0;
@@ -72,7 +89,7 @@
           background-image: url('@{images}/icons.png');
           background-repeat: no-repeat;
           background-position: 0 0;
-          background-size: auto 20px;
+          background-size: auto 1.25rem;
         }
       }
       &[href^="tel:"] {
@@ -81,32 +98,37 @@
         &:hover { text-decoration: none; }
       }
       &[href^="mailto:"] {
-        &:before { background-position: -25px 0; }
+        &:before { background-position: -1.5rem 0; }
       }
     }
   }
 
   .action {
-    height: 2.375rem;
-    padding: 0 1rem;
+    height: 2rem;
+    padding: 0 .8rem;
     border: 1px solid @color-white;
-    border-radius: 8px;
+    border-radius: .5rem;
     margin: auto 0;
-    display: block;
-    font-size: 1.25rem;
-    line-height: 2.375rem;
+    display: none;
+    font-size: 1rem;
+    line-height: 2rem;
     text-transform: uppercase;
     position: absolute;
     top: 0;
-    right: 2.5rem;
+    right: 1rem;
     bottom: 0;
     box-sizing: content-box;
     transition: color @duration, background-color @duration;
     user-select: none;
-    &:hover {
-      color: @color-blue;
-      text-decoration: none;
-      background: @color-white;
+    &:hover { color: @color-blue; text-decoration: none; background: @color-white; }
+
+    @media @mobile-md {
+      display: block;
     }
+    @media @desktop {
+      right: 2.5rem;
+    }
+
+    .m { display: none; }
   }
 }

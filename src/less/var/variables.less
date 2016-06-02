@@ -13,6 +13,7 @@
 
 @max-width: 1080px;
 
+@mobile-old: ~"(max-width: 350px) and @{portrait}, (max-width: @{w-mobile-md}) and @{landscape}";
 @mobile-xs: ~"(min-width: @{w-mobile-xs})";
 @mobile-sm: ~"(min-width: @{w-mobile-sm})";
 @mobile-md: ~"(min-width: @{w-mobile-md})";
@@ -24,9 +25,7 @@
 @landscape: ~"(orientation: landscape)";
 
 @font-default: 'Open Sans', sans-serif;
-@font-lato: 'Lato', sans-serif;
-@font-ubuntu: 'Ubuntu', sans-serif;
-@font-noto: 'Noto Sans', sans-serif;
+@font-heading: 'Montserrat', sans-serif;
 
 @color-black: #000;
 @color-white: #fff;
@@ -34,9 +33,9 @@
 @color-blue: #0078c1;
 @color-gray: #1f1f1f;
 
-@margin-sm: 6px;
-@margin-md: 24px;
-@margin-lg: 36px;
+@margin-sm: .5rem;
+@margin-md: 1.5rem;
+@margin-lg: 1.6rem;
 
 @duration-s: .1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 @duration: .2s cubic-bezier(0.645, 0.045, 0.355, 1.000);

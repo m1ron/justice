@@ -6,9 +6,7 @@
    FONTS
    ========================================================================== */
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,400italic);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
-@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,400italic,700);
-@import url(https://fonts.googleapis.com/css?family=Noto+Sans:700,400italic,400);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 /* ==========================================================================
    BASE STYLES
    ========================================================================== */
@@ -21,7 +19,7 @@ html {
   height: 100%;
   padding: 0;
   margin: 0;
-  font: 100%/1.5rem 'Open Sans', sans-serif;
+  font: 75%/1.5em 'Open Sans', sans-serif;
   color: #fff;
   letter-spacing: .03em;
   background: #000;
@@ -44,8 +42,8 @@ p,
 ul,
 ol,
 dl {
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 :focus {
   outline: -webkit-focus-ring-color auto 0;
@@ -62,7 +60,7 @@ a:hover, a:focus {
   text-decoration: underline;
 }
 figure {
-  margin: 24px 0;
+  margin: 1.5rem 0;
 }
 figure img {
   max-width: 100%;
@@ -76,6 +74,21 @@ video {
   vertical-align: middle;
 }
 /*** HEADINGS ***/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.01em;
+}
 h1 + p,
 h2 + p,
 h3 + p,
@@ -117,8 +130,8 @@ h6 + p,
 /*** .WRAPPER ***/
 .wrapper {
   max-width: 1080px;
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 2rem;
+  margin-left: 2rem;
 }
 .wrapper:after {
   display: table;
@@ -243,7 +256,7 @@ textarea {
    HEADER
    ========================================================================== */
 .header {
-  height: 5rem;
+  height: 4rem;
   position: absolute;
   top: 0;
   right: 0;
@@ -251,8 +264,8 @@ textarea {
   z-index: 10;
   background: #0078c1;
   cursor: default;
-  -webkit-transform: translate3d(0, -5rem, 0);
-          transform: translate3d(0, -5rem, 0);
+  -webkit-transform: translate3d(0, -4rem, 0);
+          transform: translate3d(0, -4rem, 0);
   -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: -webkit-transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -265,16 +278,14 @@ textarea {
           transition-delay: .6s;
 }
 .header .wrapper {
-  max-width: 1280px;
   height: 100%;
-  margin-left: auto;
   position: relative;
 }
 .header .logo {
-  width: 100px;
+  width: 5rem;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -1.5rem;
   bottom: 0;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -283,7 +294,7 @@ textarea {
 }
 .header .logo img {
   width: auto;
-  height: 60px;
+  height: 3.5rem;
   margin: auto;
   display: block;
   position: absolute;
@@ -297,8 +308,10 @@ textarea {
   margin: auto 0;
   position: absolute;
   top: 0;
-  left: 100px;
+  left: 4rem;
+  right: 0;
   bottom: 0;
+  text-align: center;
 }
 .header .contacts a {
   padding-left: 1.5rem;
@@ -313,8 +326,8 @@ textarea {
   display: block;
   content: '\0020';
   overflow: hidden;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   margin: auto;
   position: absolute;
   top: 0;
@@ -323,7 +336,7 @@ textarea {
   background-image: url('../img/icons.png');
   background-repeat: no-repeat;
   background-position: 0 0;
-  background-size: auto 20px;
+  background-size: auto 1.25rem;
 }
 .header .contacts a[href^="tel:"] {
   cursor: default;
@@ -335,21 +348,21 @@ textarea {
   text-decoration: none;
 }
 .header .contacts a[href^="mailto:"]:before {
-  background-position: -25px 0;
+  background-position: -1.5rem 0;
 }
 .header .action {
-  height: 2.375rem;
-  padding: 0 1rem;
+  height: 2rem;
+  padding: 0 .8rem;
   border: 1px solid #fff;
-  border-radius: 8px;
+  border-radius: .5rem;
   margin: auto 0;
-  display: block;
-  font-size: 1.25rem;
-  line-height: 2.375rem;
+  display: none;
+  font-size: 1rem;
+  line-height: 2rem;
   text-transform: uppercase;
   position: absolute;
   top: 0;
-  right: 2.5rem;
+  right: 1rem;
   bottom: 0;
   box-sizing: content-box;
   -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -363,6 +376,9 @@ textarea {
   color: #0078c1;
   text-decoration: none;
   background: #fff;
+}
+.header .action .m {
+  display: none;
 }
 /* ==========================================================================
    PAGE AND SECTION
@@ -383,6 +399,33 @@ textarea {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
+.section .wrapper > :first-child {
+  margin-top: 0;
+}
+.section .wrapper > :last-child {
+  margin-bottom: 0;
+}
+.section .heading {
+  margin: 1.6rem 0;
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+}
+.section .subheading {
+  margin: 1.6rem 0;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.02em;
+}
+.section .subheading strong {
+  font-weight: inherit;
+}
+.section .italic {
+  font-size: .9rem;
+  font-style: italic;
+}
+.section .small {
+  font-size: .8rem;
+}
 /* ==========================================================================
    SECTION-1
    ========================================================================== */
@@ -390,7 +433,14 @@ textarea {
   background-image: url('../img/section-1.jpg');
 }
 .section-1 .fp-tableCell {
-  padding-top: 80px;
+  padding-top: 4rem;
+}
+.section-1 .heading {
+  margin: 3rem -2rem;
+  font-size: 6rem;
+  line-height: 6rem;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 .section-1 .heading:after {
   content: '.';
@@ -424,6 +474,11 @@ textarea {
 .section-5 .fp-tableCell {
   padding-bottom: 80px;
 }
+.section-5 .subheading {
+  font-size: 2rem;
+  line-height: 2rem;
+  line-height: normal;
+}
 /* ==========================================================================
    DOTS
    ========================================================================== */
@@ -441,6 +496,7 @@ textarea {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  display: none;
 }
 .dots li {
   width: 19px;
@@ -505,7 +561,7 @@ textarea {
    FOOTER
    ========================================================================== */
 .footer {
-  height: 5rem;
+  height: 4rem;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -513,8 +569,8 @@ textarea {
   z-index: 10;
   background: #1f1f1f;
   cursor: default;
-  -webkit-transform: translate3d(0, 5rem, 0);
-          transform: translate3d(0, 5rem, 0);
+  -webkit-transform: translate3d(0, 4rem, 0);
+          transform: translate3d(0, 4rem, 0);
   -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: -webkit-transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -527,18 +583,19 @@ textarea {
           transition-delay: .6s;
 }
 .footer .wrapper {
-  max-width: 1280px;
   height: 100%;
-  margin-left: auto;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .footer .copyright {
-  height: 1.5rem;
+  width: 100%;
   margin: auto 0;
-  position: absolute;
-  top: 0;
-  left: 2.5rem;
+  font-size: 0.667em;
+  line-height: 1.2rem;
   bottom: 0;
+  text-align: center;
 }
 /* ==========================================================================
    RESPONSIVE
@@ -566,10 +623,60 @@ textarea {
     border-radius: 24px;
   }
 }
+@media (min-width: 568px){
+  .header .logo{
+    left: 0;
+  }
+  .header .contacts{
+    left: 5rem;
+    text-align: left;
+  }
+  .header .action{
+    display: block;
+  }
+}
+@media (min-width: 750px){
+  html{
+    font-size: 100%;
+  }
+}
 @media (min-width: 1280px){
+  html{
+    font-size: 125%;
+    line-height: 1.6em;
+  }
+  p,
+  ul,
+  ol,
+  dl{
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+  }
+  figure{
+    margin: 1.6rem 0;
+  }
   .wrapper{
     margin-left: auto;
     margin-right: auto;
+  }
+  .header{
+    height: 5rem;
+    -webkit-transform: translate3d(0, -5rem, 0);
+    transform: translate3d(0, -5rem, 0);
+  }
+  .header .logo img{
+    height: 4rem;
+  }
+  .header .action{
+    right: 2.5rem;
+  }
+  .dots{
+    display: block;
+  }
+}
+@media (max-width: 350px) and (orientation: portrait), (max-width: 568px) and (orientation: landscape){
+  html{
+    font-size: 62.5%;
   }
 }
 

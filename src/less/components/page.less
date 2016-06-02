@@ -16,4 +16,29 @@
   background-size: cover;
   transform-style: preserve-3d;
   backface-visibility: hidden;
+
+  .wrapper {
+    > :first-child { margin-top: 0; }
+    > :last-child { margin-bottom: 0; }
+  }
+
+  .heading {
+    margin: 1.6rem 0;
+    font-size: 3.2rem;
+    line-height: 3.2rem;
+  }
+  .subheading {
+    margin: 1.6rem 0;
+    font-size: 1.2rem;
+    font-family: @font-heading;
+    letter-spacing: -.02em;
+    strong { font-weight: inherit; }
+  }
+  .italic {
+    font-size: .9rem;
+    font-style: italic;
+  }
+  .small {
+    font-size: .8rem;
+  }
 }

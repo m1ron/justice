@@ -4,9 +4,17 @@
 .section-1 {
   background-image: url('@{images}/section-1.jpg');
 
-  .fp-tableCell { padding-top: 80px; }
+  .fp-tableCell { padding-top: 4rem; }
 
   .heading {
+    margin: 3rem -2rem;
+    font-size: 6rem;
+    line-height: 6rem;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
     &:after { content: '.'; }
+
+    @media @desktop {
+    }
   }
 }
