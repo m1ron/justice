@@ -1,0 +1,71 @@
+/* ==========================================================================
+   DOTS
+   ========================================================================== */
+.dots {
+  padding: 0;
+  margin: -110px 0 0;
+  list-style: none;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  z-index: 10;
+  cursor: default;
+  user-select: none;
+
+  li {
+    width: 19px;
+    height: 19px;
+    margin: 22px 0;
+    position: relative;
+
+    &:first-child { margin-top: 0; }
+    &:last-child { margin-bottom: 0; }
+
+    &:before {
+      width: 1px;
+      height: 15px;
+      border-radius: 0;
+      margin: 0 0 0 -1px;
+      left: 50%;
+      top: 22px;
+      opacity: .5;
+      background: @color-white;
+      transition: background-color @duration;
+    }
+
+    a {
+      width: 100%;
+      height: 100%;
+      padding: 4px;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      display: block;
+      opacity: .5;
+      transition: border-color @duration, opacity @duration;
+
+      &:before {
+        border-radius: 50%;
+        overflow: hidden;
+        display: block;
+        content: '';
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        bottom: 4px;
+        left: 4px;
+        background: @color-white;
+        transition: background-color @duration, box-shadow @duration;
+      }
+
+      &:hover {
+        opacity: 1;
+        &:before { box-shadow: 0 0 5px 0 @color-white; }
+      }
+    }
+
+    &.active {
+      a { border-color: @color-white; opacity: 1; }
+    }
+  }
+}

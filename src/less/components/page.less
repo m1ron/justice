@@ -1,0 +1,17 @@
+/* ==========================================================================
+   PAGE
+   ========================================================================== */
+.page {
+  position: relative;
+  .section {
+    overflow: hidden;
+
+    @supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+      & { transform-style: preserve-3d; backface-visibility: hidden; }
+    }
+
+    &.section-1 {
+      .fp-scrollable { height: 100%; }
+    }
+  }
+}

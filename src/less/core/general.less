@@ -1,0 +1,191 @@
+/* ==========================================================================
+   BASE STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font: 16px/24px @font-default;
+  color: @color-white;
+  letter-spacing: .03em;
+  background: @color-black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  width: 100%;
+  min-width: @w-mobile-xxs;
+  height: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  position: relative;
+  background: @color-black;
+}
+/* ==========================================================================
+   _TEXT STYLES
+   ========================================================================== */
+p, ul, ol, dl {
+  margin-top: @margin-md;
+  margin-bottom: @margin-md;
+}
+:focus { outline: -webkit-focus-ring-color auto 0; }
+a {
+  color: @color-blue; outline: none; text-decoration: none; transition: color @duration;
+  &:hover { outline: none; text-decoration: underline; }
+}
+figure {
+  margin: @margin-md 0;
+  img { max-width: 100%; height: auto; display: block; }
+}
+audio, canvas, img, video { vertical-align: middle; }
+/*** HEADINGS ***/
+h1, .h1 {
+  margin-top: @margin-lg;
+  margin-bottom: @margin-sm;
+  font: 500 26px/30px @font-default;
+  color: @color-black;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  @media @mobile-xs {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+h2, .h2 {
+  margin-top: @margin-lg;
+  margin-bottom: @margin-sm;
+  font: 500 20px/26px @font-default;
+  color: @color-black;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  @media @mobile-xs {
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: .08em;
+  }
+}
+h3, .h3 {
+  margin-top: @margin-lg;
+  margin-bottom: @margin-sm;
+  font: 500 18px/24px @font-default;
+  color: @color-black;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  @media @mobile-xs {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+h4, .h4 {
+  margin-top: @margin-md;
+  margin-bottom: 0;
+  font: 500 16px/24px @font-default;
+  color: @color-black;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+h5, .h5 {
+  margin-top: @margin-md;
+  margin-bottom: 0;
+  font: 500 15px/20px @font-default;
+  color: @color-black;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+h6, .h6 {
+  margin-top: @margin-md;
+  margin-bottom: 0;
+  font: 500 14px/18px @font-default;
+  color: @color-black;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  & + p { margin-top: 0; }
+}
+/* ==========================================================================
+   GENERAL STYLES
+   ========================================================================== */
+.hidden { display: none; }
+.pseudo { display: block; content: '\0020'; overflow: hidden; }
+.clearfix { display: table; content: '\0020'; clear: both; }
+/* ==========================================================================
+   CONTAINERS
+   ========================================================================== */
+/*** .PAGE ***/
+.page {
+  width: 100%;
+  overflow-x: hidden;
+  @media @mobile-xs {
+    overflow-x: visible;
+  }
+}
+/*** .WRAPPER ***/
+.wrapper {
+  max-width: @max-width;
+  margin-right: 15px;
+  margin-left: 15px;
+  &:after { .clearfix; }
+  @media @desktop {
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/*** .CONTAINER ***/
+.container {
+  width: 100%;
+  > .panel:last-child { margin-bottom: 0; }
+
+  @media @tablet-sm {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media @desktop {
+    padding: 0 0 20px;
+    margin: -20px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+/*** .PANEL ***/
+.panel {
+  padding: 25px 15px;
+  margin: 20px 0;
+  background: @color-white;
+
+  .heading { margin-top: 0; }
+
+  @media @tablet-sm {
+    & {
+      padding: 45px 30px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    &.left {
+      width: 365px;
+      margin-right: 15px;
+      flex-grow: 1;
+    }
+    &.right {
+      width: 340px;
+      flex-basis: 340px;
+      flex-grow: 0;
+    }
+  }
+
+  @media @desktop {
+    margin: 20px 0;
+    &.left {
+      margin-right: 28px;
+    }
+  }
+}
