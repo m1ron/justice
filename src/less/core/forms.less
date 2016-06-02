@@ -19,13 +19,13 @@ form, fieldset, legend {
   letter-spacing: .03em;
   white-space: nowrap;
   display: inline-block;
-  background: @color-orange;
+  background: @color-white;
   transition: background-color @duration;
   .color-black(.2);
   box-shadow: 0 1px 2px 0 @color;
   user-select: none;
   cursor: pointer;
-  &:hover, &:focus, &:active { text-decoration: none; background: @color-tangerine; }
+  &:hover, &:focus, &:active { text-decoration: none; background: @color-white; }
   @media @mobile-xs {
     height: 35px;
     padding-right: 26px;
@@ -45,7 +45,7 @@ form, fieldset, legend {
   width: 100%;
   max-width: 200px;
   padding: 12px 15px;
-  border: 1px solid @color-silver;
+  border: 1px solid @color-white;
   border-radius: 3px;
   display: inline-block;
   vertical-align: middle;
@@ -60,7 +60,7 @@ textarea {
   resize: none;
 }
 /* noinspection CssInvalidPseudoSelector */
-::placeholder { color: @color-independence; opacity: 1; }
+::placeholder { color: @color-white; opacity: 1; }
 /*** DEFAULT ***/
 .form {
   &-group {

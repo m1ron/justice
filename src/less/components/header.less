@@ -2,4 +2,111 @@
    HEADER
    ========================================================================== */
 .header {
+  height: 5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background: @color-blue;
+  cursor: default;
+  transform: translate3d(0, -5rem, 0);
+  transition: transform @duration-l;
+
+  .fp-viewing-section-1 & {
+    transform: translate3d(0, 0, 0);
+    transition-delay: .6s;
+  }
+
+  .wrapper {
+    max-width: 1280px;
+    height: 100%;
+    margin-left: auto;
+    position: relative;
+  }
+
+  .logo {
+    width: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    user-select: none;
+    img {
+      width: auto;
+      height: 60px;
+      margin: auto;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .contacts {
+    height: 1.5rem;
+    margin: auto 0;
+    position: absolute;
+    top: 0;
+    left: 100px;
+    bottom: 0;
+
+    a {
+      padding-left: 1.5rem;
+      margin-left: 1.5rem;
+      position: relative;
+
+      &:first-child { margin-left: 0; }
+      &[href^="tel:"], &[href^="mailto:"] {
+        &:before {
+          .pseudo;
+          width: 20px;
+          height: 20px;
+          margin: auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          background-image: url('@{images}/icons.png');
+          background-repeat: no-repeat;
+          background-position: 0 0;
+          background-size: auto 20px;
+        }
+      }
+      &[href^="tel:"] {
+        cursor: default;
+        &:before { background-position: 0 0; }
+        &:hover { text-decoration: none; }
+      }
+      &[href^="mailto:"] {
+        &:before { background-position: -25px 0; }
+      }
+    }
+  }
+
+  .action {
+    height: 2.375rem;
+    padding: 0 1rem;
+    border: 1px solid @color-white;
+    border-radius: 8px;
+    margin: auto 0;
+    display: block;
+    font-size: 1.25rem;
+    line-height: 2.375rem;
+    text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    right: 2.5rem;
+    bottom: 0;
+    box-sizing: content-box;
+    transition: color @duration, background-color @duration;
+    user-select: none;
+    &:hover {
+      color: @color-blue;
+      text-decoration: none;
+      background: @color-white;
+    }
+  }
 }

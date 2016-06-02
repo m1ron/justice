@@ -16,11 +16,8 @@ $(document).ready(function () {
 			menu: '#dots',
 			css3: true,
 			touchSensitivity: 10,
-			scrollOverflow: true,
-			keyboardScrolling: false,
 			animateAnchor: false,
 			recordHistory: false,
-			verticalCentered: true,
 			resize: false,
 			scrollingSpeed: 1000
 		});
