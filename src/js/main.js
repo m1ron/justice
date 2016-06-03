@@ -2,19 +2,26 @@
 /*global window, console, document, $, jQuery, google */
 
 
+
+/* Animation global settings */
+window.duration = {
+	animation: 3000,
+	page: 1000
+};
+
+/** Fastclick */
+FastClick.attach(document.body);
+
+/** Hammer */
+var hammertime = new Hammer(document, {
+	recognizers: [[Hammer.Swipe, {direction: Hammer.DIRECTION_ALL}]]
+});
+
+
 /**
  * On document ready
  */
 $(document).ready(function () {
-
-	// Animation duration
-	window.duration = {
-		animation: 3000,
-		page: 1000
-	};
-
-	/** Fastclick */
-	FastClick.attach(document.body);
 
 	/** Fullpage */
 	$('.page').each(function () {
@@ -23,16 +30,16 @@ $(document).ready(function () {
 		function onIn(index) {
 			function wheel(event) {
 				if (event.deltaY < 0) {
-					html.off('mousewheel');
 					current.addClass('animated');
 					animated.trigger('animate');
 					setTimeout(function () {
 						enable();
 					}, duration.animation);
 				} else if (event.deltaY > 0) {
-					html.off('mousewheel');
 					$.fn.fullpage.moveSectionUp();
 				}
+				html.off('mousewheel', wheel);
+				hammertime.off('swipe', wheel);
 				event.preventDefault();
 			}
 
@@ -49,10 +56,11 @@ $(document).ready(function () {
 					console.log('scroll paused');
 					animated = $('.bars', current).eq(0);
 					html.on('mousewheel', wheel);
+					hammertime.on('swipe', wheel);
 				} else {
 					enable();
 				}
-			}, 2400);
+			}, 2000);
 		}
 
 
@@ -69,12 +77,11 @@ $(document).ready(function () {
 		}
 
 
-		var sections = $('.section', this), html = $('html');
+		var sections = $('.section', this), html = $('html'), doc = $(document);
 		$(this).fullpage({
 			css3: true,
 			easingcss3: 'cubic-bezier(0.645, 0.045, 0.355, 1.000)',
 			scrollingSpeed: duration.page,
-			scrollOverflow: true,
 			touchSensitivity: 10,
 			onLeave: function (index, nextIndex, direction) {
 				onOut.call(sections.eq(index - 1), index);
@@ -83,8 +90,11 @@ $(document).ready(function () {
 				onIn.call(sections.eq(index - 1), index);
 			}
 			/*
+			 scrollOverflow: true,
+			 keyboardScrolling: false,
 			 animateAnchor: false,
 			 recordHistory: false,
+			 verticalCentered: true,
 			 resize: false,
 			 */
 		});

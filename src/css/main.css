@@ -32,7 +32,13 @@ body {
   height: 100%;
   min-height: 100%;
   margin: 0 auto;
-  position: relative;
+  /*
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  */
   background: #000;
 }
 /* ==========================================================================
@@ -385,10 +391,12 @@ textarea {
    ========================================================================== */
 .page {
   width: 100%;
+  height: 100%;
   position: relative;
   z-index: 1;
 }
 .section {
+  height: 100%;
   overflow: hidden;
   text-align: center;
   background-repeat: no-repeat;
@@ -399,13 +407,13 @@ textarea {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
-.section .wrapper > :first-child {
+.section.fp-section .wrapper > :first-child {
   margin-top: 0;
 }
-.section .wrapper > :last-child {
+.section.fp-section .wrapper > :last-child {
   margin-bottom: 0;
 }
-.section .wrapper > * {
+.section.fp-section .wrapper > * {
   opacity: 0;
   -webkit-transform: translate3d(0, -0.5rem, 0);
           transform: translate3d(0, -0.5rem, 0);
@@ -414,31 +422,31 @@ textarea {
   transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-.section .wrapper > *.bars,
-.section .wrapper > *.system {
+.section.fp-section .wrapper > *.bars,
+.section.fp-section .wrapper > *.system {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   -webkit-transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-.active.fp-completely.fp-section.section .wrapper > * {
+.active.fp-completely.fp-section.section.fp-section .wrapper > * {
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
 }
-.section .wrapper > *:nth-child(n+3) {
+.section.fp-section .wrapper > *:nth-child(n+3) {
   -webkit-transition-delay: 1.8s;
           transition-delay: 1.8s;
 }
-.section .wrapper > *:nth-child(3) {
+.section.fp-section .wrapper > *:nth-child(3) {
   -webkit-transition-delay: 1.2s;
           transition-delay: 1.2s;
 }
-.section .wrapper > *:nth-child(2) {
+.section.fp-section .wrapper > *:nth-child(2) {
   -webkit-transition-delay: 0.6s;
           transition-delay: 0.6s;
 }
-.section .wrapper > *:nth-child(1) {
+.section.fp-section .wrapper > *:nth-child(1) {
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
 }
@@ -887,10 +895,10 @@ textarea {
   background: #fff;
 }
 .bars .bar .b.animated {
-  -webkit-transition: -webkit-transform 3s linear;
-  transition: -webkit-transform 3s linear;
-  transition: transform 3s linear;
-  transition: transform 3s linear, -webkit-transform 3s linear;
+  -webkit-transition: -webkit-transform 3.2s linear;
+  transition: -webkit-transform 3.2s linear;
+  transition: transform 3.2s linear;
+  transition: transform 3.2s linear, -webkit-transform 3.2s linear;
 }
 /* ==========================================================================
    FOOTER
@@ -1017,7 +1025,6 @@ textarea {
   }
   .header .contacts{
     font-size: .8rem;
-    right: auto;
   }
   .section-1 .heading{
     margin-left: auto;

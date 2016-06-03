@@ -36,7 +36,7 @@ module.exports = function (grunt) {
 
 		clean: {
 			pre: [dist.root, src.css, src.js + 'vendor'],
-			after: [src.fonts + 'FontAwesome.otf', src.js + 'vendor/fastclick.js', src.css + 'temp'],
+			after: [src.js + 'vendor/fastclick.js', src.css + 'temp'],
 			dist: [dist.js + 'custom.js']
 		},
 		copy: {
@@ -49,8 +49,9 @@ module.exports = function (grunt) {
 							src.vendor + 'html5shiv/dist/html5shiv.min.js',
 							src.vendor + 'jquery/dist/jquery.min.js',
 							src.vendor + 'fastclick/lib/fastclick.js',
-							src.vendor + 'fullpage.js/dist/jquery.fullpage.min.js',
-							src.vendor + 'jquery-mousewheel/jquery.mousewheel.min.js'
+							src.vendor + 'hammerjs/hammer.min.js',
+							src.vendor + 'jquery-mousewheel/jquery.mousewheel.min.js',
+							src.vendor + 'fullpage.js/dist/jquery.fullpage.min.js'
 						],
 						dest: src.js + 'vendor'
 					}, {
@@ -97,9 +98,10 @@ module.exports = function (grunt) {
 					{
 						src: [
 							src.js + 'custom.js',
-							src.js + 'vendor/fastclick.min.js',
-							src.js + 'vendor/jquery.fullpage.min.js',
-							src.js + 'vendor/jquery.mousewheel.min.js'
+							src.js + 'vendor/fastclick.js',
+							src.js + 'vendor/hammer.min.js',
+							src.js + 'vendor/jquery.mousewheel.min.js',
+							src.js + 'vendor/jquery.fullpage.min.js'
 						],
 						dest: src.js + 'plugins.js'
 					}, {
@@ -178,19 +180,21 @@ module.exports = function (grunt) {
 				tasks: ["process"]
 			},
 			styles: {
-				files: [src.less + "**/*.less"],
+				files: [src.less + "**/ *.less"],
 				tasks: ["process"]
 			},
 			html: {
 				files: [src.html + "*.html"],
 				tasks: ["process"]
-			},
+			}
+			,
 			images: {
 				files: [src.img + "**/*.*"],
 				tasks: ["process"]
 			}
 		}
-	});
+	})
+	;
 
 	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks("grunt-contrib-less");
