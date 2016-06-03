@@ -1,0 +1,97 @@
+/* ==========================================================================
+   BARS
+   ========================================================================== */
+.bars {
+  max-width: 42.7rem;
+  margin: 1.6rem auto;
+  cursor: default;
+  &:after { .clearfix; }
+
+  @media @mobile-landscape {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  @media @desktop-md {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .item {
+    width: 33.33%;
+    padding: 0 .5rem;
+    float: left;
+  }
+
+  .title {
+    margin-bottom: .9rem;
+    display: block;
+    font: 600 1.2rem/1.2rem @font-default;
+    letter-spacing: -.02em;
+    text-transform: uppercase;
+    @media @mobile-landscape {
+      margin-bottom: .4rem;
+    }
+  }
+
+  .numbers {
+    margin-bottom: .4rem;
+    display: block;
+    font: 600 1.8rem/1.8rem @font-default;
+  }
+
+  .note {
+    display: block;
+    font: .6rem/1rem @font-default;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+  }
+
+  .year {
+    display: block;
+    font: 600 1.8rem/1.8rem @font-default;
+    letter-spacing: .02em;
+  }
+
+  .bar {
+    width: 3rem;
+    height: 35vh;
+    max-height: 15rem;
+    margin: 1rem auto 1.25rem;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    @media @mobile-landscape {
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+    }
+
+    .b {
+      width: 100%;
+      height: 100%;
+      border-radius: .25rem .25rem 0 0;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: @color-white;
+    }
+
+    @media @mobile-landscape {
+      height: 16vh;
+    }
+    @media @desktop-sm and (max-height: 800px) {
+      height: 30vh;
+    }
+    @media @desktop-sm and (max-height: 700px) {
+      height: 25vh;
+    }
+    @media @desktop-sm and (max-height: 650px) {
+      height: 20vh;
+    }
+    @media @desktop-sm and (max-height: 600px) {
+      height: 15vh;
+    }
+  }
+}

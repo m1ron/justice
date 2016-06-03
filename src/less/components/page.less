@@ -6,6 +6,10 @@
   width: 100%;
   position: relative;
   z-index: 1;
+
+  @media @mobile-old {
+    height: auto !important;
+  }
 }
 // SECTION
 .section {
@@ -22,23 +26,56 @@
     > :last-child { margin-bottom: 0; }
   }
 
+  // HEADING
   .heading {
-    margin: 1.6rem 0;
+    margin: 1.6rem auto;
     font-size: 3.2rem;
     line-height: 3.2rem;
+    @media @mobile-landscape {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
   }
+
+  // SUBHEADING
   .subheading {
-    margin: 1.6rem 0;
+    max-width: 50rem;
+    margin: 1.6rem auto;
     font-size: 1.2rem;
     font-family: @font-heading;
     letter-spacing: -.02em;
     strong { font-weight: inherit; }
+    @media @mobile-landscape {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
   }
+
+  @media @mobile-landscape {
+    p {
+      margin-top: .8rem;
+      margin-bottom: .8rem;
+    }
+  }
+
+  // ITALIC
   .italic {
     font-size: .9rem;
     font-style: italic;
+    //animation: flicker 1s infinite cubic-bezier(0.645, 0.045, 0.355, 1.000);
   }
+
+  // SMALL
   .small {
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
     font-size: .8rem;
+    line-height: 1.2rem;
   }
+}
+// FLICKER ANIMATION
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: .1; }
+  100% { opacity: 1; }
 }

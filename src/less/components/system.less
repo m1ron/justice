@@ -1,0 +1,292 @@
+/* ==========================================================================
+   SYSTEM
+   ========================================================================== */
+@color-gray-light: #696a6c;
+@color-gray-dark: #404040;
+.system {
+  padding: 3rem 4.5rem;
+  margin: 0 -2rem;
+  display: inline-block;
+  position: relative;
+  cursor: default;
+  user-select: none;
+  &:after { .clearfix; }
+
+  @media @mobile-landscape {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  @media @mobile-lg {
+    padding-left: 6.5rem;
+    padding-right: 6.5rem;
+  }
+  @media @tablet-md {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  .arrow {
+    min-width: 2.5rem;
+    height: 1.25rem;
+    position: absolute;
+
+    &:before {
+      .pseudo;
+      height: .05rem;
+      overflow: hidden;
+      position: absolute;
+      top: .55rem;
+      right: 0;
+      left: 0;
+      background: @color-white;
+
+      @media @mobile-old {
+        min-height: 1px;
+      }
+    }
+    &:after {
+      .pseudo;
+      width: 0.7rem;
+      height: 1.25rem;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      right: -.25rem;
+      background: url('@{images}/icons.png') no-repeat -5rem -.5rem;
+      background-size: auto 2rem;
+
+      @media @mobile-old {
+        top: .05rem;
+        right: -.4rem;
+      }
+    }
+  }
+
+  .start {
+    width: 5rem;
+    height: 3.7rem;
+    display: block;
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    font-size: .9rem;
+    line-height: 1.3rem;
+    letter-spacing: -.01em;
+    font-weight: bold;
+    text-align: left;
+
+    @media @mobile-lg {
+      width: 6.5rem;
+      left: .2rem;
+    }
+    @media @tablet-md {
+      font-size: 1.2rem;
+    }
+
+    .title {
+      position: absolute;
+      top: 0;
+      right: .7rem;
+      left: 0;
+      text-align: center;
+
+      @media @mobile-lg {
+        text-align: left;
+        top: .4rem;
+        right: auto;
+      }
+    }
+
+    .arrow {
+      margin: auto;
+      top: 0;
+      right: .25rem;
+      bottom: 0;
+      left: 0;
+
+      @media @mobile-old {
+        right: .4rem;
+      }
+
+      @media @mobile-lg {
+        margin: 0;
+        top: 1.5rem;
+        bottom: auto;
+      }
+    }
+  }
+
+  .finish {
+    width: 5rem;
+    height: 3.7rem;
+    display: block;
+    position: absolute;
+    top: 3rem;
+    right: 0;
+    font-size: .9rem;
+    line-height: 1.3rem;
+    letter-spacing: -.01em;
+    font-weight: bold;
+    text-align: left;
+
+    @media @mobile-lg {
+      width: 6.5rem;
+      right: .2rem;
+    }
+    @media @tablet-md {
+      font-size: 1.2rem;
+    }
+
+    .title {
+      text-align: center;
+      position: absolute;
+      top: 0;
+      right: .6rem;
+      left: .4rem;
+
+      @media @mobile-lg {
+        text-align: left;
+        top: 1.25rem;
+        right: auto;
+        left: 3.5rem;
+      }
+      @media @tablet-sm {
+        top: 1.3rem;
+      }
+    }
+
+    .arrow {
+      margin: auto;
+      top: 0;
+      right: .2rem;
+      left: 0;
+      bottom: 0;
+
+      @media @mobile-old {
+        right: .4rem;
+      }
+      @media @mobile-lg {
+        margin: 0;
+        top: 1.5rem;
+        right: auto;
+        left: 0;
+      }
+    }
+  }
+
+  .list {
+    padding: 0 .95rem;
+    margin: 0 auto;
+    list-style: none;
+    position: relative;
+    display: flex;
+
+    .item {
+      height: 3.7rem;
+      padding: .25rem .8rem;
+      margin: 0 .05rem;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      background: @color-gray-light;
+
+      @media @mobile-md {
+        width: 6rem;
+        padding-right: .4rem;
+        padding-left: .4rem;
+      }
+      @media @tablet-md {
+        width: 7.6rem;
+      }
+
+      &:before {
+        .pseudo;
+        border-left: .4rem solid @color-gray-dark;
+        border-right: .4rem solid @color-gray-dark;
+        position: absolute;
+        top: -.4rem;
+        right: 0;
+        bottom: -.4rem;
+        left: 0;
+        z-index: 1;
+      }
+
+      .lines {
+        display: block;
+        position: absolute;
+        top: .05rem;
+        right: 0;
+        bottom: .05rem;
+        left: 0;
+        z-index: 1;
+
+        &:before, &:after {
+          .pseudo;
+          width: .8rem;
+          border-top: .25rem solid @color-gray-dark;
+          border-bottom: .25rem solid @color-gray-dark;
+          position: absolute;
+          top: .25rem;
+          bottom: .25rem;
+          left: 0;
+          z-index: 2;
+        }
+        &:before { top: 0; bottom: 0; }
+        &:after { top: .8rem; bottom: .8rem; }
+      }
+      &:first-child .lines { display: none; }
+
+      .outside {
+        width: .4rem;
+        display: none;
+        position: absolute;
+        top: -.4rem;
+        left: 0;
+        bottom: -.4rem;
+        z-index: 1;
+        background: @color-gray-dark;
+
+        &:before, &:after {
+          .pseudo;
+          width: 100%;
+          border-top: .25rem solid @color-gray-dark;
+          border-bottom: .25rem solid @color-gray-dark;
+          position: absolute;
+          top: .4rem;
+          bottom: .4rem;
+          left: -100%;
+        }
+        &:before { top: .45rem; bottom: .45rem; }
+        &:after { top: 1.2rem; bottom: 1.2rem; }
+      }
+      &:first-child .outside {
+        left: -.5rem;
+        display: block;
+      }
+      &:last-child .outside {
+        left: auto;
+        right: -.5rem;
+        display: block;
+        &:before, &:after { left: 100%; }
+      }
+
+      .title {
+        width: 100%;
+        padding: .4rem 0;
+        margin: auto;
+        font-size: .9rem;
+        line-height: 1rem;
+        letter-spacing: -.01rem;
+        display: block;
+        position: relative;
+        z-index: 10;
+
+        @media @tablet-md {
+          font-size: 1rem;
+          line-height: 1.2rem;
+        }
+      }
+    }
+  }
+}

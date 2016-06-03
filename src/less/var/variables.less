@@ -9,23 +9,28 @@
 @w-mobile-lg: 667px;
 @w-tablet-sm: 750px;
 @w-tablet-md: 990px;
-@w-desktop: 1280px;
+@w-desktop-sm: 1280px;
+@w-desktop-md: 1440px;
 
 @max-width: 1080px;
 
+@portrait: ~"(orientation: portrait)";
+@landscape: ~"(orientation: landscape)";
+
 @mobile-old: ~"(max-width: 350px) and @{portrait}, (max-width: @{w-mobile-md}) and @{landscape}";
+@mobile-landscape: ~ "@{landscape} and (max-width: @{w-tablet-sm})";
 @mobile-xs: ~"(min-width: @{w-mobile-xs})";
 @mobile-sm: ~"(min-width: @{w-mobile-sm})";
 @mobile-md: ~"(min-width: @{w-mobile-md})";
 @mobile-lg: ~"(min-width: @{w-mobile-lg})";
 @tablet-sm: ~"(min-width: @{w-tablet-sm})";
 @tablet-md: ~"(min-width: @{w-tablet-md})";
-@desktop: ~"(min-width: @{w-desktop})";
-@portrait: ~"(orientation: portrait)";
-@landscape: ~"(orientation: landscape)";
+@desktop-sm: ~"(min-width: @{w-desktop-sm})";
+@desktop-md: ~"(min-width: @{w-desktop-md})";
 
 @font-default: 'Open Sans', sans-serif;
 @font-heading: 'Montserrat', sans-serif;
+@font-helvetica: 'Helvetica', sans-serif;
 
 @color-black: #000;
 @color-white: #fff;

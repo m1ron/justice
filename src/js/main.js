@@ -18,16 +18,30 @@ $(document).ready(function () {
 			touchSensitivity: 10,
 			animateAnchor: false,
 			recordHistory: false,
+			//scrollOverflow: true,
 			resize: false,
 			scrollingSpeed: 1000
 		});
 		/*
-		$('.down', this).on('click', function (event) {
-			$.fn.fullpage.moveSectionDown();
-			event.preventDefault();
-		});
-		*/
+		 $('.down', this).on('click', function (event) {
+		 $.fn.fullpage.moveSectionDown();
+		 event.preventDefault();
+		 });
+		 */
 		//$.fn.fullpage.setAllowScrolling(false);
+	});
+
+	/** Bars */
+
+	/** System */
+	$('.system').each(function () {
+		$('.start, .finish', this).each(function () {
+			$('<span/>').addClass('arrow').appendTo(this);
+		});
+		$('.list .item', this).each(function () {
+			$('<span/>').addClass('lines').appendTo(this);
+			$('<span/>').addClass('outside').appendTo(this);
+		});
 	});
 
 });

@@ -13,7 +13,7 @@
   transform: translate3d(0, -4rem, 0);
   transition: transform @duration-l;
 
-  @media @desktop {
+  @media @desktop-sm {
     height: 5rem;
     transform: translate3d(0, -5rem, 0);
   }
@@ -26,8 +26,12 @@
   .wrapper {
     height: 100%;
     position: relative;
+    @media @desktop-sm {
+      max-width: 1280px;
+    }
   }
 
+  //LOGO
   .logo {
     width: 5rem;
     position: absolute;
@@ -49,12 +53,13 @@
       right: 0;
       bottom: 0;
       left: 0;
-      @media @desktop {
+      @media @desktop-sm {
         height: 4rem;
       }
     }
   }
 
+  //CONTACTS
   .contacts {
     height: 1.5rem;
     margin: auto 0;
@@ -68,6 +73,10 @@
     @media @mobile-md {
       left: 5rem;
       text-align: left;
+    }
+    @media @tablet-sm {
+      font-size: .8rem;
+      right: auto;
     }
 
     a {
@@ -125,10 +134,15 @@
     @media @mobile-md {
       display: block;
     }
-    @media @desktop {
-      right: 2.5rem;
+    @media @desktop-sm {
+      right: 2rem;
     }
 
-    .m { display: none; }
+    .m {
+      display: none;
+      @media @tablet-md {
+        display: inline;
+      }
+    }
   }
 }
