@@ -183,21 +183,19 @@ module.exports = function (grunt) {
 				tasks: ["process"]
 			},
 			styles: {
-				files: [src.less + "**/ *.less"],
+				files: [src.less + "**/*.less"],
 				tasks: ["process"]
 			},
 			html: {
 				files: [src.html + "*.html"],
 				tasks: ["process"]
-			}
-			,
+			},
 			images: {
 				files: [src.img + "**/*.*"],
 				tasks: ["process"]
 			}
 		}
-	})
-	;
+	});
 
 	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks("grunt-contrib-less");

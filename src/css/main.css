@@ -715,7 +715,7 @@ textarea {
   display: -ms-flexbox;
   display: flex;
 }
-.system .list .item {
+.system .item {
   height: 3.7rem;
   padding: .25rem .8rem;
   margin: 0 .05rem;
@@ -727,8 +727,14 @@ textarea {
           justify-content: center;
   position: relative;
   background: #696a6c;
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: -webkit-transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
-.system .list .item:before {
+.system .item:before {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -741,7 +747,7 @@ textarea {
   left: 0;
   z-index: 1;
 }
-.system .list .item .lines {
+.system .item .lines {
   display: block;
   position: absolute;
   top: .05rem;
@@ -750,8 +756,8 @@ textarea {
   left: 0;
   z-index: 1;
 }
-.system .list .item .lines:before,
-.system .list .item .lines:after {
+.system .item .lines:before,
+.system .item .lines:after {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -764,18 +770,18 @@ textarea {
   left: 0;
   z-index: 2;
 }
-.system .list .item .lines:before {
+.system .item .lines:before {
   top: 0;
   bottom: 0;
 }
-.system .list .item .lines:after {
+.system .item .lines:after {
   top: .8rem;
   bottom: .8rem;
 }
-.system .list .item:first-child .lines {
+.system .item:first-child .lines {
   display: none;
 }
-.system .list .item .outside {
+.system .item .outside {
   width: .4rem;
   display: none;
   position: absolute;
@@ -785,8 +791,8 @@ textarea {
   z-index: 1;
   background: #404040;
 }
-.system .list .item .outside:before,
-.system .list .item .outside:after {
+.system .item .outside:before,
+.system .item .outside:after {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -798,28 +804,28 @@ textarea {
   bottom: .4rem;
   left: -100%;
 }
-.system .list .item .outside:before {
+.system .item .outside:before {
   top: .45rem;
   bottom: .45rem;
 }
-.system .list .item .outside:after {
+.system .item .outside:after {
   top: 1.2rem;
   bottom: 1.2rem;
 }
-.system .list .item:first-child .outside {
+.system .item:first-child .outside {
   left: -0.5rem;
   display: block;
 }
-.system .list .item:last-child .outside {
+.system .item:last-child .outside {
   left: auto;
   right: -0.5rem;
   display: block;
 }
-.system .list .item:last-child .outside:before,
-.system .list .item:last-child .outside:after {
+.system .item:last-child .outside:before,
+.system .item:last-child .outside:after {
   left: 100%;
 }
-.system .list .item .title {
+.system .item .title {
   width: 100%;
   padding: .4rem 0;
   margin: auto;
@@ -829,6 +835,140 @@ textarea {
   display: block;
   position: relative;
   z-index: 10;
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: -webkit-transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-delay: inherit;
+          transition-delay: inherit;
+}
+.system .item .trait {
+  display: block;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  font-size: .9rem;
+  line-height: 1rem;
+  letter-spacing: -0.01rem;
+  white-space: nowrap;
+  text-align: center;
+  opacity: 1;
+  -webkit-transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-delay: inherit;
+          transition-delay: inherit;
+}
+.system .item:after {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 1.5rem;
+  height: 2.25rem;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  background: url('../img/scratch.png') no-repeat 0 0;
+  -webkit-transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition-delay: inherit;
+          transition-delay: inherit;
+}
+.system .item:nth-child(1) {
+  -webkit-transform: rotate(-12deg) translate3d(0.4rem, 0, 0);
+          transform: rotate(-12deg) translate3d(0.4rem, 0, 0);
+}
+.system .item:nth-child(1) .trait {
+  -webkit-transform: rotate(2deg) translate3d(-1.5rem, 1.1rem, 0);
+          transform: rotate(2deg) translate3d(-1.5rem, 1.1rem, 0);
+}
+.system .item:nth-child(1) .title {
+  -webkit-transform: translate3d(-0.2rem, 0.2rem, 0);
+          transform: translate3d(-0.2rem, 0.2rem, 0);
+}
+.system .item:nth-child(1):after {
+  right: .8rem;
+}
+.system .item:nth-child(2) {
+  -webkit-transform: rotate(4deg) translate3d(0.6rem, -1.5rem, 0);
+          transform: rotate(4deg) translate3d(0.6rem, -1.5rem, 0);
+  -webkit-transition-delay: .8s;
+          transition-delay: .8s;
+}
+.system .item:nth-child(2) .trait {
+  -webkit-transform: translate3d(-2.2rem, 2.6rem, 0);
+          transform: translate3d(-2.2rem, 2.6rem, 0);
+}
+.system .item:nth-child(2) .trait.last {
+  -webkit-transform: rotate(-4deg) translate3d(4rem, 3rem, 0);
+          transform: rotate(-4deg) translate3d(4rem, 3rem, 0);
+}
+.system .item:nth-child(2) .title {
+  -webkit-transform: translate3d(0.2rem, -0.9rem, 0);
+          transform: translate3d(0.2rem, -0.9rem, 0);
+}
+.system .item:nth-child(2):after {
+  top: auto;
+  bottom: 0;
+  right: 2.5rem;
+  -webkit-transform: scaleY(-1);
+      -ms-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+.system .item:nth-child(3) {
+  -webkit-transform: rotate(-5deg) translate3d(0.9rem, 0.25rem, 0);
+          transform: rotate(-5deg) translate3d(0.9rem, 0.25rem, 0);
+  -webkit-transition-delay: 1.6s;
+          transition-delay: 1.6s;
+}
+.system .item:nth-child(3) .trait {
+  -webkit-transform: translate3d(1.7rem, 1.3rem, 0);
+          transform: translate3d(1.7rem, 1.3rem, 0);
+}
+.system .item:nth-child(3) .title {
+  -webkit-transform: translate3d(-0.1rem, 0.15rem, 0);
+          transform: translate3d(-0.1rem, 0.15rem, 0);
+}
+.system .item:nth-child(3):after {
+  top: auto;
+  bottom: 0;
+  right: .5rem;
+}
+.system .item:nth-child(4) {
+  -webkit-transform: rotate(7deg) translate3d(1.25rem, -0.5rem, 0);
+          transform: rotate(7deg) translate3d(1.25rem, -0.5rem, 0);
+  -webkit-transition-delay: 2.4s;
+          transition-delay: 2.4s;
+}
+.system .item:nth-child(4) .trait {
+  -webkit-transform: translate3d(1.2rem, 1.6rem, 0);
+          transform: translate3d(1.2rem, 1.6rem, 0);
+}
+.system .item:nth-child(4) .title {
+  -webkit-transform: translate3d(0.2rem, 0.1rem, 0);
+          transform: translate3d(0.2rem, 0.1rem, 0);
+}
+.system .item:nth-child(4):after {
+  top: 0;
+  right: .8rem;
+}
+.animated.system .item:nth-child(1),
+.animated.system .item:nth-child(2),
+.animated.system .item:nth-child(3),
+.animated.system .item:nth-child(4) {
+  -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+          transform: rotate(0deg) translate3d(0, 0, 0);
+}
+.animated.system .item .trait {
+  opacity: 0;
+}
+.animated.system .item .title {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.animated.system .item:after {
+  opacity: 0;
 }
 /* ==========================================================================
    BARS
@@ -896,10 +1036,10 @@ textarea {
   background: #fff;
 }
 .bars .bar .b.animated {
-  -webkit-transition: -webkit-transform 3.2s linear;
-  transition: -webkit-transform 3.2s linear;
-  transition: transform 3.2s linear;
-  transition: transform 3.2s linear, -webkit-transform 3.2s linear;
+  -webkit-transition: -webkit-transform 2.1s linear;
+  transition: -webkit-transform 2.1s linear;
+  transition: transform 2.1s linear;
+  transition: transform 2.1s linear, -webkit-transform 2.1s linear;
 }
 /* ==========================================================================
    FOOTER
@@ -978,7 +1118,7 @@ textarea {
   .header .action{
     display: block;
   }
-  .system .list .item{
+  .system .item{
     width: 6rem;
     padding-right: .4rem;
     padding-left: .4rem;
@@ -1049,10 +1189,10 @@ textarea {
   .system .finish{
     font-size: 1.2rem;
   }
-  .system .list .item{
+  .system .item{
     width: 7.6rem;
   }
-  .system .list .item .title{
+  .system .item .title{
     font-size: 1rem;
     line-height: 1.2rem;
   }
