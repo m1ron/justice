@@ -98,7 +98,7 @@ module.exports = function (grunt) {
 					{
 						src: [
 							src.js + 'custom.js',
-							src.js + 'vendor/fastclick.js',
+							src.js + 'vendor/fastclick.min.js',
 							src.js + 'vendor/hammer.min.js',
 							src.js + 'vendor/jquery.mousewheel.min.js',
 							src.js + 'vendor/jquery.fullpage.min.js'
@@ -161,6 +161,9 @@ module.exports = function (grunt) {
 			}
 		},
 		uglify: {
+			options: {
+				preserveComments: 'some'
+			},
 			dev: {
 				files: [{
 					expand: true,
