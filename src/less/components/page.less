@@ -21,9 +21,51 @@
   transform-style: preserve-3d;
   backface-visibility: hidden;
 
+  // WRAPPER
+  @page-transition-duration: .6s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  @page-transition-delay: .6s;
   .wrapper {
     > :first-child { margin-top: 0; }
     > :last-child { margin-bottom: 0; }
+    > * {
+      opacity: 0;
+      transform: translate3d(0, -.5rem, 0);
+      transition: opacity @page-transition-duration, transform @page-transition-duration;
+
+      &.bars, &.system {
+        transform: translate3d(0, 0, 0);
+        transition: opacity @page-transition-duration;
+      }
+      .active.fp-completely.fp-section& { opacity: 1; transform: translate3d(0, 0, 0); }
+
+      &:nth-child(n+3) { transition-delay: 3 * @page-transition-delay; }
+      .loopingClass (@index) when (@index > 0) {
+        &:nth-child(@{index}) { transition-delay: (@index - 1) * @page-transition-delay; }
+        .loopingClass(@index - 1);
+      }
+      .loopingClass(3);
+    }
+  }
+
+  // GLOW EFFECT
+  @keyframes glow {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  .glow {
+    opacity: 0;
+    transition: opacity @duration;
+    animation: glow 2s 1s infinite;
+    .active& { opacity: 1; }
+  }
+
+  // SCROLL GLOWING HELPER
+  .scroll {
+    .animated& {
+      opacity: 0 !important;
+      transition: opacity @duration-l !important;
+    }
   }
 
   // HEADING
@@ -62,7 +104,6 @@
   .italic {
     font-size: .9rem;
     font-style: italic;
-    //animation: flicker 1s infinite cubic-bezier(0.645, 0.045, 0.355, 1.000);
   }
 
   // SMALL
@@ -72,10 +113,4 @@
     font-size: .8rem;
     line-height: 1.2rem;
   }
-}
-// FLICKER ANIMATION
-@keyframes flicker {
-  0% { opacity: 1; }
-  50% { opacity: .1; }
-  100% { opacity: 1; }
 }
