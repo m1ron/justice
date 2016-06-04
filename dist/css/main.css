@@ -666,6 +666,7 @@ textarea {
   text-align: left;
 }
 .system .start .title {
+  padding-left: .25rem;
   position: absolute;
   top: 0;
   right: .7rem;
@@ -1036,10 +1037,139 @@ textarea {
   background: #fff;
 }
 .bars .bar .b.animated {
-  -webkit-transition: -webkit-transform 2.1s linear;
-  transition: -webkit-transform 2.1s linear;
-  transition: transform 2.1s linear;
-  transition: transform 2.1s linear, -webkit-transform 2.1s linear;
+  -webkit-transition: -webkit-transform 1.6s linear;
+  transition: -webkit-transform 1.6s linear;
+  transition: transform 1.6s linear;
+  transition: transform 1.6s linear, -webkit-transform 1.6s linear;
+}
+/* ==========================================================================
+   GRAPH
+   ========================================================================== */
+.graph {
+  width: 20rem;
+  margin: 0 auto;
+  position: relative;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.graph .axis-y {
+  width: 3rem;
+  border-right: 0.05rem solid #0078c1;
+  display: block;
+  position: relative;
+  z-index: 1;
+  text-align: right;
+}
+.graph .axis-y .number {
+  height: 3.2rem;
+  padding-right: .45rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 3.2rem;
+  display: block;
+  position: relative;
+}
+.graph .axis-y .number:before {
+  display: block;
+  content: '\0020';
+  width: 17rem;
+  height: .05rem;
+  border-top: 0.05rem dashed #0078c1;
+  margin: auto;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  bottom: 0;
+  opacity: .5;
+}
+.graph .axis-y .legend {
+  display: none;
+}
+.graph .axis-x {
+  padding-left: 3rem;
+  border-top: 0.05rem solid #0078c1;
+  display: block;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.graph .axis-x .year {
+  width: 5.1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.7rem;
+  display: inline-block;
+}
+.graph .lines {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 1.75rem;
+  left: 3rem;
+  z-index: 5;
+}
+.graph .lines .line {
+  width: .45rem;
+  height: .45rem;
+  border-radius: .25rem;
+  margin-bottom: -0.25rem;
+  display: block;
+  position: absolute;
+  background: #0078c1;
+  -webkit-transform-origin: 0 50%;
+      -ms-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  opacity: 0;
+}
+.graph .lines .line:before,
+.graph .lines .line:after {
+  display: block;
+  content: '\0020';
+  width: .35rem;
+  height: .35rem;
+  border: 0.1rem solid #0078c1;
+  border-radius: .3rem;
+  overflow: hidden;
+  position: absolute;
+  top: -0.05rem;
+  left: -0.05rem;
+  background: #fff;
+}
+.graph .lines .line:after {
+  left: auto;
+  right: -0.05rem;
+}
+.graph .lines .line.line-1 {
+  bottom: 1.6rem;
+  left: 3.35rem;
+  -webkit-transform: rotate(-32deg);
+      -ms-transform: rotate(-32deg);
+          transform: rotate(-32deg);
+  -webkit-transition: width 1s linear;
+  transition: width 1s linear;
+  opacity: 1;
+}
+.animated.graph .lines .line.line-1 {
+  width: 6.4rem;
+}
+.graph .lines .line.line-2 {
+  bottom: 4.65rem;
+  left: 8.5rem;
+  -webkit-transform: rotate(-68deg);
+      -ms-transform: rotate(-68deg);
+          transform: rotate(-68deg);
+  -webkit-transition: width 1.5s 1.01s linear, opacity .01s 1s linear;
+  transition: width 1.5s 1.01s linear, opacity .01s 1s linear;
+}
+.animated.graph .lines .line.line-2 {
+  width: 14.25rem;
+  opacity: 1;
 }
 /* ==========================================================================
    FOOTER

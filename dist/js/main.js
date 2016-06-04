@@ -6,7 +6,7 @@
 /* Animation global settings */
 window.duration = {
 	animation: 3000,
-	bar: 2000,
+	bar: 1500,
 	page: 1000
 };
 
@@ -69,12 +69,12 @@ $(document).ready(function () {
 		/** On section leave */
 		function onOut(index) {
 			console.log('onOut');
-			var _this = this;
+			var that = this;
 			$.fn.fullpage.setAllowScrolling(false);
 			console.log('scroll disabled');
-			_this.removeClass('enabled').removeClass('animated');
+			that.removeClass('enabled').removeClass('animated');
 			setTimeout(function () {
-				$('.with-animation', _this).trigger('reset');
+				$('.with-animation', that).trigger('reset');
 			}, duration.page);
 		}
 
@@ -122,13 +122,13 @@ $(document).ready(function () {
 
 		/* Animate values */
 		function animateValue() {
-			var _this = this, current = from = this.data('from'),
+			var that = this, current = from = this.data('from'),
 				to = this.data('to'),
 				range = to - from,
 				increment = to > from ? 1 : -1, step = Math.abs(Math.floor(duration.bar / range));
 			var timer = setInterval(function () {
 				current += increment;
-				_this.text(current);
+				that.text(current);
 				if (current === to) {
 					clearInterval(timer);
 					console.log('animation stopped');
@@ -136,17 +136,17 @@ $(document).ready(function () {
 			}, step);
 		}
 
-		var _this = $(this), numbers = $('.n', _this), bars = $('.bar .b', _this), years = $('.year', _this);
-		_this.off('animate').on('animate', function () {
+		var that = $(this), numbers = $('.n', that), bars = $('.bar .b', that), years = $('.year', that);
+		that.off('animate').on('animate', function () {
 			console.log('animation started');
 			numbers.each(function (i) {
-				setTimeout(animateValue.bind($(this)), +(i * duration.bar / 2));
+				setTimeout(animateValue.bind($(this)), +(i * duration.bar));
 			});
 			bars.each(function (i) {
-				setTimeout(animateBar.bind($(this)), +(i * duration.bar / 2));
+				setTimeout(animateBar.bind($(this)), +(i * duration.bar));
 			});
 			years.each(function (i) {
-				setTimeout(animateValue.bind($(this)), +(i * duration.bar / 2));
+				setTimeout(animateValue.bind($(this)), +(i * duration.bar));
 			});
 			return false;
 		}).off('reset').on('reset', function () {
@@ -160,20 +160,40 @@ $(document).ready(function () {
 
 	/** System */
 	$('.system').each(function () {
-		var _this = $(this);
-		$('.start, .finish', _this).each(function () {
+		var that = $(this);
+		$('.start, .finish', that).each(function () {
 			$('<span/>').addClass('arrow').appendTo(this);
 		});
-		$('.list .item', _this).each(function () {
+		$('.list .item', that).each(function () {
 			$('<span/>').addClass('lines').appendTo(this);
 			$('<span/>').addClass('outside').appendTo(this);
 		});
-		_this.off('animate').on('animate', function () {
-			_this.addClass('animated');
+		that.off('animate').on('animate', function () {
+			that.addClass('animated');
 			console.log('animation started');
 			return false;
 		}).off('reset').on('reset', function () {
-			$(this).removeClass('animated');
+			that.removeClass('animated');
+		});
+	});
+
+
+	/** System */
+	$('.graph').each(function () {
+		var that = $(this), y = $('.axis-y', that), x = $('.axis-x', that);
+		$('<span/>').addClass('title').text(y.data('legend')).appendTo(y);
+		for (i = +y.data('from'); i >= +y.data('to'); i = i - 1000) {
+			$('<span/>').addClass('number').text(i).appendTo(y);
+		}
+		for (i = +x.data('from'); i <= +x.data('to'); i = i + 1) {
+			$('<span/>').addClass('year').text(i).appendTo(x);
+		}
+		that.off('animate').on('animate', function () {
+			that.addClass('animated');
+			console.log('animation started');
+			return false;
+		}).off('reset').on('reset', function () {
+			that.removeClass('animated');
 		});
 	});
 });
