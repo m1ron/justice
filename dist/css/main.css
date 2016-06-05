@@ -25,6 +25,7 @@ html {
   background: #000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* @media @desktop-lg { font-size: 125%; } */
 }
 body {
   width: 100%;
@@ -32,13 +33,11 @@ body {
   height: 100%;
   min-height: 100%;
   margin: 0 auto;
-  /*
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  */
   background: #000;
 }
 /* ==========================================================================
@@ -262,7 +261,7 @@ textarea {
    HEADER
    ========================================================================== */
 .header {
-  height: 4rem;
+  height: 2.5rem;
   position: absolute;
   top: 0;
   right: 0;
@@ -270,18 +269,11 @@ textarea {
   z-index: 10;
   background: #0078c1;
   cursor: default;
-  -webkit-transform: translate3d(0, -4rem, 0);
-          transform: translate3d(0, -4rem, 0);
-  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: -webkit-transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
 }
 .fp-viewing-0 .header {
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  -webkit-transition-delay: .6s;
-          transition-delay: .6s;
+  height: 4.5rem;
 }
 .header .wrapper {
   height: 100%;
@@ -300,7 +292,7 @@ textarea {
 }
 .header .logo img {
   width: auto;
-  height: 3.5rem;
+  height: 2.25rem;
   margin: auto;
   display: block;
   position: absolute;
@@ -308,6 +300,11 @@ textarea {
   right: 0;
   bottom: 0;
   left: 0;
+  -webkit-transition: height 0.5s;
+  transition: height 0.5s;
+}
+.fp-viewing-0 .header .logo img {
+  height: 4rem;
 }
 .header .contacts {
   height: 1.5rem;
@@ -357,22 +354,22 @@ textarea {
   background-position: -1.5rem 0;
 }
 .header .action {
-  height: 2rem;
-  padding: 0 .8rem;
+  height: 1.5rem;
+  padding: 0 .5rem;
   border: 1px solid #fff;
   border-radius: .5rem;
   margin: auto 0;
   display: none;
-  font-size: 1rem;
-  line-height: 2rem;
+  font-size: .9rem;
+  line-height: 1.5rem;
   text-transform: uppercase;
   position: absolute;
   top: 0;
   right: 1rem;
   bottom: 0;
   box-sizing: content-box;
-  -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition: all 0.5s, color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.5s, color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -382,6 +379,13 @@ textarea {
   color: #0078c1;
   text-decoration: none;
   background: #fff;
+}
+.fp-viewing-0 .header .action {
+  padding-left: .8rem;
+  padding-right: .8rem;
+  height: 2rem;
+  font-size: 1rem;
+  line-height: 2rem;
 }
 .header .action .m {
   display: none;
@@ -406,6 +410,10 @@ textarea {
           transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+}
+.section .fp-tableCell {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 .section.fp-section .wrapper > :first-child {
   margin-top: 0;
@@ -451,25 +459,21 @@ textarea {
           transition-delay: 0s;
 }
 @-webkit-keyframes glow {
-  0% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
     opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 @keyframes glow {
-  0% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
     opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 .section .glow {
@@ -512,6 +516,52 @@ textarea {
   font-size: .8rem;
   line-height: 1.2rem;
 }
+@-webkit-keyframes bounce {
+  0%,
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 0.25rem, 0);
+            transform: translate3d(0, 0.25rem, 0);
+  }
+}
+@keyframes bounce {
+  0%,
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 0.25rem, 0);
+            transform: translate3d(0, 0.25rem, 0);
+  }
+}
+.section:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  width: 1.5rem;
+  height: 3.5rem;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  bottom: 1.25rem;
+  left: 0;
+  background: url('../img/down.png') no-repeat center center;
+  background-size: contain;
+  -webkit-transition: opacity .6s ease;
+  transition: opacity .6s ease;
+  opacity: 0;
+  -webkit-animation: bounce 1.6s infinite paused;
+          animation: bounce 1.6s infinite paused;
+}
+.enabled.section:before {
+  opacity: 1;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
 /* ==========================================================================
    SECTION-1
    ========================================================================== */
@@ -519,7 +569,7 @@ textarea {
   background-image: url('../img/section-1.jpg');
 }
 .section-1 .fp-tableCell {
-  padding-top: 4rem;
+  padding-top: 5rem;
 }
 .section-1 .heading {
   margin: 3rem -2rem;
@@ -535,6 +585,10 @@ textarea {
   max-width: 45rem;
   margin-left: auto;
   margin-right: auto;
+}
+.section-1:before {
+  width: 2.15rem;
+  height: 5rem;
 }
 /* ==========================================================================
    SECTION-2
@@ -605,11 +659,14 @@ textarea {
   margin-left: auto;
   margin-right: auto;
 }
+.section-5:before {
+  display: none;
+}
 /* ==========================================================================
    SYSTEM
    ========================================================================== */
 .system {
-  padding: 3rem 4.5rem;
+  padding: 4rem 4.5rem;
   margin: 0 -2rem;
   display: inline-block;
   position: relative;
@@ -623,6 +680,15 @@ textarea {
   display: table;
   content: '\0020';
   clear: both;
+}
+.system .italic {
+  margin: auto;
+  display: block;
+  line-height: 1.2rem;
+  position: absolute;
+  top: -0.25rem;
+  right: 0;
+  left: 0;
 }
 .system .arrow {
   min-width: 2.5rem;
@@ -871,6 +937,7 @@ textarea {
   top: 0;
   z-index: 0;
   background: url('../img/scratch.png') no-repeat 0 0;
+  background-size: contain;
   -webkit-transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
   -webkit-transition-delay: inherit;
@@ -976,13 +1043,23 @@ textarea {
    ========================================================================== */
 .bars {
   max-width: 42.7rem;
-  margin: 1.6rem auto;
+  padding-top: 2.4rem;
+  margin: 0 auto;
   cursor: default;
 }
 .bars:after {
   display: table;
   content: '\0020';
   clear: both;
+}
+.bars .italic {
+  margin: auto;
+  display: block;
+  line-height: 1.2rem;
+  position: absolute;
+  top: -0.25rem;
+  right: 0;
+  left: 0;
 }
 .bars .item {
   width: 33.33%;
@@ -1014,7 +1091,7 @@ textarea {
 }
 .bars .bar {
   width: 3rem;
-  height: 35vh;
+  height: 33vh;
   max-height: 15rem;
   margin: 1rem auto 1.25rem;
   display: block;
@@ -1028,6 +1105,7 @@ textarea {
 .bars .bar .b {
   width: 100%;
   height: 100%;
+  max-height: inherit;
   border-radius: .25rem .25rem 0 0;
   display: block;
   position: absolute;
@@ -1037,10 +1115,10 @@ textarea {
   background: #fff;
 }
 .bars .bar .b.animated {
-  -webkit-transition: -webkit-transform 1.6s linear;
-  transition: -webkit-transform 1.6s linear;
-  transition: transform 1.6s linear;
-  transition: transform 1.6s linear, -webkit-transform 1.6s linear;
+  -webkit-transition: -webkit-transform 1.5s linear;
+  transition: -webkit-transform 1.5s linear;
+  transition: transform 1.5s linear;
+  transition: transform 1.5s linear, -webkit-transform 1.5s linear;
 }
 /* ==========================================================================
    GRAPH
@@ -1248,6 +1326,9 @@ textarea {
   .header .action{
     display: block;
   }
+  .system .arrow:before{
+    min-height: 1px;
+  }
   .system .item{
     width: 6rem;
     padding-right: .4rem;
@@ -1292,7 +1373,7 @@ textarea {
 }
 @media (min-width: 750px){
   html{
-    font-size: 100%;
+    font-size: 93.75%;
   }
   .header .contacts{
     font-size: .8rem;
@@ -1300,6 +1381,9 @@ textarea {
   .section-1 .heading{
     margin-left: auto;
     margin-right: auto;
+  }
+  .section-1 .italic br{
+    display: none;
   }
   .system .finish .title{
     top: 1.3rem;
@@ -1329,7 +1413,7 @@ textarea {
 }
 @media (min-width: 1280px){
   html{
-    font-size: 125%;
+    font-size: 100%;
     line-height: 1.6em;
   }
   p,
@@ -1346,16 +1430,8 @@ textarea {
     margin-left: auto;
     margin-right: auto;
   }
-  .header{
-    height: 5rem;
-    -webkit-transform: translate3d(0, -5rem, 0);
-    transform: translate3d(0, -5rem, 0);
-  }
   .header .wrapper{
     max-width: 1280px;
-  }
-  .header .logo img{
-    height: 4rem;
   }
   .header .action{
     right: 2rem;
@@ -1394,9 +1470,6 @@ textarea {
   .page{
     height: auto !important;
   }
-  .system .arrow:before{
-    min-height: 1px;
-  }
   .system .arrow:after{
     top: .05rem;
     right: -0.4rem;
@@ -1420,6 +1493,11 @@ textarea {
   .section p{
     margin-top: .8rem;
     margin-bottom: .8rem;
+  }
+  .section-1:before{
+    width: 1.7rem;
+    height: 5rem;
+    bottom: 1rem;
   }
   .system{
     padding-top: 1.5rem;

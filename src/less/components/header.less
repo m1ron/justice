@@ -1,8 +1,9 @@
+@duration-header: .5s;
 /* ==========================================================================
    HEADER
    ========================================================================== */
 .header {
-  height: 4rem;
+  height: 2.5rem;
   position: absolute;
   top: 0;
   right: 0;
@@ -10,18 +11,8 @@
   z-index: 10;
   background: @color-blue;
   cursor: default;
-  transform: translate3d(0, -4rem, 0);
-  transition: transform @duration-l;
-
-  @media @desktop-sm {
-    height: 5rem;
-    transform: translate3d(0, -5rem, 0);
-  }
-
-  .fp-viewing-0 & {
-    transform: translate3d(0, 0, 0);
-    transition-delay: .6s;
-  }
+  transition: height @duration-header;
+  .fp-viewing-0 & { height: 4.5rem; }
 
   .wrapper {
     height: 100%;
@@ -45,7 +36,7 @@
 
     img {
       width: auto;
-      height: 3.5rem;
+      height: 2.25rem;
       margin: auto;
       display: block;
       position: absolute;
@@ -53,9 +44,8 @@
       right: 0;
       bottom: 0;
       left: 0;
-      @media @desktop-sm {
-        height: 4rem;
-      }
+      transition: height @duration-header;
+      .fp-viewing-0 & { height: 4rem; }
     }
   }
 
@@ -112,23 +102,31 @@
   }
 
   .action {
-    height: 2rem;
-    padding: 0 .8rem;
+    height: 1.5rem;
+    padding: 0 .5rem;
     border: 1px solid @color-white;
     border-radius: .5rem;
     margin: auto 0;
     display: none;
-    font-size: 1rem;
-    line-height: 2rem;
+    font-size: .9rem;
+    line-height: 1.5rem;
     text-transform: uppercase;
     position: absolute;
     top: 0;
     right: 1rem;
     bottom: 0;
     box-sizing: content-box;
-    transition: color @duration, background-color @duration;
+    transition: all @duration-header, color @duration, background-color @duration;
     user-select: none;
     &:hover { color: @color-blue; text-decoration: none; background: @color-white; }
+
+    .fp-viewing-0 & {
+      padding-left: .8rem;
+      padding-right: .8rem;
+      height: 2rem;
+      font-size: 1rem;
+      line-height: 2rem;
+    }
 
     @media @mobile-md {
       display: block;

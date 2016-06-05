@@ -28,15 +28,28 @@ $(document).ready(function () {
 	/** Fullpage */
 	$('.page').each(function () {
 
+		// ENABLE
+		function enable() {
+			this.addClass('enabled');
+			console.log('Scrolling enabled');
+			$.fn.fullpage.setAllowScrolling(true);
+		}
+
+		// DISABLE
+		function disable() {
+			console.log('Scrolling disabled');
+			$.fn.fullpage.setAllowScrolling(false);
+		}
+
 		/** On section entry */
 		function onIn(index) {
 			function wheel(event) {
 				if (event.deltaY < 0) {
-					current.addClass('animated');
+					that.addClass('animated');
 					animated.trigger('animate');
 					setTimeout(function () {
-						enable();
-					}, duration.animation);
+						enable.call(that);
+					}, +that.data('duration'));
 				} else if (event.deltaY > 0) {
 					$.fn.fullpage.moveSectionUp();
 				}
@@ -45,69 +58,50 @@ $(document).ready(function () {
 				event.preventDefault();
 			}
 
-			function enable() {
-				current.addClass('enabled');
-				console.log('scroll enabled');
-				$.fn.fullpage.setAllowScrolling(true);
-			}
+			var that = this, animated;
 
-			console.log('onIn');
-			var current = this, animated;
+			disable();
+			console.log('Delay ' + that.data('duration') + 'ms');
+
 			setTimeout(function () {
-				if (current.hasClass('paused')) {
+				if (that.hasClass('paused')) {
 					console.log('scroll paused');
-					animated = $('.with-animation', current).eq(0);
+					animated = $('.with-animation', that).eq(0);
 					html.on('mousewheel', wheel);
 					hammertime.on('swipe', wheel);
 				} else {
-					enable();
+					enable.call(that);
 				}
-			}, 2000);
+			}, that.data('duration'));
 		}
 
 
 		/** On section leave */
 		function onOut(index) {
-			console.log('onOut');
 			var that = this;
+
 			$.fn.fullpage.setAllowScrolling(false);
-			console.log('scroll disabled');
 			that.removeClass('enabled').removeClass('animated');
+
 			setTimeout(function () {
 				$('.with-animation', that).trigger('reset');
 			}, duration.page);
 		}
 
-
-		var sections = $('.section', this), html = $('html'), doc = $(document);
-		$(this).fullpage({
+		var doc = $(document), that = $(this), html = $('html'), sections = $('.section', this);
+		that.fullpage({
 			css3: true,
 			easingcss3: 'cubic-bezier(0.645, 0.045, 0.355, 1.000)',
 			scrollingSpeed: duration.page,
 			touchSensitivity: 10,
-			onLeave: function (index, nextIndex, direction) {
-				onOut.call(sections.eq(index - 1), index);
-			},
 			afterLoad: function (anchorLink, index) {
 				onIn.call(sections.eq(index - 1), index);
+			},
+			onLeave: function (index, nextIndex, direction) {
+				onOut.call(sections.eq(index - 1), index);
 			}
-			/*
-			 scrollOverflow: true,
-			 keyboardScrolling: false,
-			 animateAnchor: false,
-			 recordHistory: false,
-			 verticalCentered: true,
-			 resize: false,
-			 */
 		});
-		/*
-		 $('.down', this).on('click', function (event) {
-		 $.fn.fullpage.moveSectionDown();
-		 event.preventDefault();
-		 });
-		 */
-		console.log('scroll disabled init');
-		$.fn.fullpage.setAllowScrolling(false);
+		disable();
 	});
 
 
@@ -140,13 +134,13 @@ $(document).ready(function () {
 		that.off('animate').on('animate', function () {
 			console.log('animation started');
 			numbers.each(function (i) {
-				setTimeout(animateValue.bind($(this)), +(i * duration.bar));
+				setTimeout(animateValue.bind($(this)), +(i * duration.bar * .75));
 			});
 			bars.each(function (i) {
-				setTimeout(animateBar.bind($(this)), +(i * duration.bar));
+				setTimeout(animateBar.bind($(this)), +(i * duration.bar * .75));
 			});
 			years.each(function (i) {
-				setTimeout(animateValue.bind($(this)), +(i * duration.bar));
+				setTimeout(animateValue.bind($(this)), +(i * duration.bar * .75));
 			});
 			return false;
 		}).off('reset').on('reset', function () {

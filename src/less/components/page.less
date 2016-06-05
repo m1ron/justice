@@ -23,12 +23,18 @@
   transform-style: preserve-3d;
   backface-visibility: hidden;
 
+  .fp-tableCell {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
   // WRAPPER
   @page-transition-duration: .6s cubic-bezier(0.645, 0.045, 0.355, 1.000);
   @page-transition-delay: .6s;
 
   &.fp-section {
     .wrapper {
+
       > :first-child { margin-top: 0; }
       > :last-child { margin-bottom: 0; }
       > * {
@@ -54,9 +60,8 @@
 
   // GLOW EFFECT
   @keyframes glow {
-    0% { opacity: 1; }
+    0%, 100% { opacity: 1; }
     50% { opacity: 0; }
-    100% { opacity: 1; }
   }
   .glow {
     opacity: 0;
@@ -117,5 +122,27 @@
     margin-bottom: 1.2rem;
     font-size: .8rem;
     line-height: 1.2rem;
+  }
+
+  // DOWN
+  @keyframes bounce {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(0, .25rem, 0); }
+  }
+  &:before {
+    .pseudo;
+    width: 1.5rem;
+    height: 3.5rem;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    bottom: 1.25rem;
+    left: 0;
+    background: url('@{images}/down.png') no-repeat center center;
+    background-size: contain;
+    transition: opacity .6s ease;
+    opacity: 0;
+    animation: bounce 1.6s infinite paused;
+    .enabled& { opacity: 1; animation-play-state: running; }
   }
 }
