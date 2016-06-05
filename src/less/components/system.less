@@ -156,6 +156,15 @@
       right: .6rem;
       left: .4rem;
 
+      .s {
+        margin-top: -.5rem; display: block;
+        .animated& { display: none; }
+      }
+      .f {
+        display: none;
+        .animated& { display: block; }
+      }
+
       @media @mobile-lg {
         text-align: left;
         top: 1.25rem;

@@ -28,18 +28,14 @@
     text-align: right;
 
     .number {
-      height: 3.2rem;
+      height: 2.4rem;
       padding-right: .45rem;
       font-weight: 600;
       letter-spacing: -.01em;
-      line-height: 3.2rem;
+      line-height: 2.4rem;
       display: block;
       position: relative;
 
-      @media @tablet-md {
-        height: 2.4rem;
-        line-height: 2.4rem;
-      }
       @media @desktop-md {
         height: 3.2rem;
         line-height: 3.2rem;
@@ -115,18 +111,13 @@
       &:after { left: auto; right: -.05rem; }
 
       &.line-1 {
-        bottom: 1.6rem;
+        bottom: 1.05rem;
         left: 3.35rem;
-        transform: rotate(-32deg);
+        transform: rotate(-26.5deg);
         transition: width 1s linear;
         opacity: 1;
-        .animated& { width: 6.4rem; }
+        .animated& { width: 6rem; }
 
-        @media @tablet-md {
-          bottom: 1.05rem;
-          transform: rotate(-26.5deg);
-          .animated& { width: 6rem; }
-        }
         @media @desktop-md {
           bottom: 1.6rem;
           transform: rotate(-32deg);
@@ -135,17 +126,11 @@
       }
 
       &.line-2 {
-        bottom: 4.65rem;
+        bottom: 3.55rem;
         left: 8.5rem;
-        transform: rotate(-68deg);
+        transform: rotate(-60deg);
         transition: width 1.5s 1.01s linear, opacity .01s 1s linear;
-        .animated& { width: 14.25rem; opacity: 1; }
-
-        @media @tablet-md {
-          bottom: 3.55rem;
-          transform: rotate(-60deg);
-          .animated& { width: 11.4rem; }
-        }
+        .animated& { width: 11.4rem; opacity: 1; }
         @media @desktop-md {
           bottom: 4.65rem;
           transform: rotate(-68deg);

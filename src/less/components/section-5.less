@@ -27,17 +27,34 @@
 
   .two {
     margin-top: 1.5rem;
+    margin-left: -2rem;
+    margin-right: -2rem;
     .button {
-      min-width: 18rem;
+      min-width: 13rem;
       display: inline-block;
+      font-size: .9rem;
+      line-height: 1.2rem;
+
+      @media @tablet-sm {
+        min-width: 18rem;
+        font-size: 1.1rem;
+        line-height: 1.4rem;
+      }
+
       &:first-child {
-        margin-right: 2rem;
+        margin-right: .5rem;
+        @media @tablet-sm {
+          margin-right: 2rem;
+        }
         @media @tablet-md {
           margin-right: 6rem;
         }
       }
       &:last-child {
-        margin-left: 2rem;
+        margin-left: .5rem;
+        @media @tablet-sm {
+          margin-left: 2rem;
+        }
         @media @tablet-md {
           margin-left: 6rem;
         }

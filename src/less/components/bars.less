@@ -66,7 +66,7 @@
 
   .bar {
     width: 3rem;
-    height: 30vh;
+    height: 18vh;
     max-height: 15rem;
     margin: 1rem auto 1.25rem;
     display: block;
@@ -76,6 +76,34 @@
     @media @mobile-landscape {
       margin-top: .5rem;
       margin-bottom: .5rem;
+      max-height: 10rem;
+    }
+    @media @tablet-landscape {
+      max-height: 10rem;
+    }
+    @media @tablet-sm {
+      height: 28vh;
+    }
+    @media @desktop-sm {
+      max-height: 12rem;
+    }
+    @media @desktop-md {
+      max-height: 15rem;
+    }
+    @media @mobile-landscape {
+      height: 16vh;
+    }
+    @media @landscape and (max-height: 800px) {
+      height: 25vh;
+    }
+    @media @landscape and (max-height: 700px) {
+      height: 20vh;
+    }
+    @media @landscape and (max-height: 650px) {
+      height: 17vh;
+    }
+    @media @landscape and (max-height: 600px) {
+      height: 15vh;
     }
 
     .b {
@@ -93,22 +121,6 @@
       &.animated {
         transition: transform @duration-bars;
       }
-    }
-
-    @media @mobile-landscape {
-      height: 16vh;
-    }
-    @media @desktop-sm and (max-height: 800px) {
-      height: 25vh;
-    }
-    @media @desktop-sm and (max-height: 700px) {
-      height: 20vh;
-    }
-    @media @desktop-sm and (max-height: 650px) {
-      height: 17vh;
-    }
-    @media @desktop-sm and (max-height: 600px) {
-      height: 15vh;
     }
   }
 }
