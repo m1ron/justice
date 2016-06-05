@@ -161,8 +161,9 @@
         .animated& { display: none; }
       }
       .f {
-        display: none;
-        .animated& { display: block; }
+        opacity: 0;
+        transition: opacity @duration 3s;
+        .animated& { opacity: 1; }
       }
 
       @media @mobile-lg {

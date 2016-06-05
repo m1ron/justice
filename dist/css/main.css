@@ -774,10 +774,12 @@ legend {
   display: none;
 }
 .system .finish .title .f {
-  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 3s;
+  transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 3s;
 }
 .animated.system .finish .title .f {
-  display: block;
+  opacity: 1;
 }
 .system .finish .arrow {
   margin: auto;
