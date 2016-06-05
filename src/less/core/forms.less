@@ -8,63 +8,28 @@ form, fieldset, legend {
   display: block;
 }
 /*** BUTTONS ***/
-[type="submit"], [type="reset"], [type="button"], button, .button {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 17px;
-  font: 16px/16px @font-default;
-  color: @color-black;
+.button {
+  padding: .5rem;
+  border: .1rem solid @color-white;
+  border-radius: .4rem;
+  font: 1.1rem/1.4rem @font-default;
+  letter-spacing: .02rem;
+  color: @color-white;
   text-align: center;
   text-decoration: none;
-  letter-spacing: .03em;
   white-space: nowrap;
   display: inline-block;
-  background: @color-white;
-  transition: background-color @duration;
-  .color-black(.2);
-  box-shadow: 0 1px 2px 0 @color;
+  background: none;
+  transition: color @duration, background-color @duration;
   user-select: none;
+  backface-visibility: hidden;
   cursor: pointer;
-  &:hover, &:focus, &:active { text-decoration: none; background: @color-white; }
-  @media @mobile-xs {
-    height: 35px;
-    padding-right: 26px;
-    padding-left: 26px;
-  }
+  &:hover { color: @color-black; text-decoration: none; background: @color-white; }
 }
-[type="submit"], [type="reset"], [type="button"], button {
-  @media @mobile-xs {
-    height: 45px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-radius: 24px;
-  }
-}
-/*** FIELDS ***/
-[type="text"], [type="tel"], [type="email"], textarea {
-  width: 100%;
-  max-width: 200px;
-  padding: 12px 15px;
-  border: 1px solid @color-white;
-  border-radius: 3px;
-  display: inline-block;
-  vertical-align: middle;
-  font: 16px @font-default;
-  color: @color-black;
-  background: @color-white;
-  user-select: none;
-}
-textarea {
-  max-width: 550px;
-  height: 170px;
-  resize: none;
-}
-/* noinspection CssInvalidPseudoSelector */
-::placeholder { color: @color-white; opacity: 1; }
 /*** DEFAULT ***/
 .form {
   &-group {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
     &:after { .clearfix; }
     &:last-child { margin-bottom: 0; }
   }

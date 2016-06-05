@@ -6,7 +6,7 @@
 /* Animation global settings */
 window.duration = {
 	animation: 3000,
-	bar: 1500,
+	bar: 2000,
 	page: 1000
 };
 
@@ -102,6 +102,11 @@ $(document).ready(function () {
 			}
 		});
 		disable();
+
+		$('.down', this).on('click', function (event) {
+			$.fn.fullpage.moveSectionDown();
+			event.preventDefault();
+		});
 	});
 
 

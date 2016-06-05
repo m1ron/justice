@@ -25,7 +25,7 @@
 
   .fp-tableCell {
     padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-bottom: 5rem;
   }
 
   // WRAPPER
@@ -34,6 +34,8 @@
 
   &.fp-section {
     .wrapper {
+      position: relative;
+      z-index: 5;
 
       > :first-child { margin-top: 0; }
       > :last-child { margin-bottom: 0; }
@@ -124,7 +126,7 @@
     line-height: 1.2rem;
   }
 
-  // DOWN
+  // ARROW
   @keyframes bounce {
     0%, 100% { transform: translate3d(0, 0, 0); }
     50% { transform: translate3d(0, .25rem, 0); }
@@ -136,13 +138,57 @@
     margin: auto;
     position: absolute;
     right: 0;
-    bottom: 1.25rem;
+    bottom: 2.5rem;
     left: 0;
+    z-index: 3;
     background: url('@{images}/down.png') no-repeat center center;
     background-size: contain;
     transition: opacity .6s ease;
     opacity: 0;
     animation: bounce 1.6s infinite paused;
     .enabled& { opacity: 1; animation-play-state: running; }
+    @media @tablet-md {
+      bottom: 1rem;
+    }
+    @media @desktop-md {
+      bottom: 2rem;
+    }
+  }
+
+  &:after {
+    .pseudo;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    background: @color-black;
+    opacity: .3;
+    @media @desktop-sm {
+      display: none;
+    }
+  }
+
+  //DOWN
+  .down {
+    width: 20rem;
+    margin: auto;
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 7rem;
+    left: 0;
+    z-index: 4;
+    transition: opacity .6s ease;
+    opacity: 0;
+    .animated& { display: block; }
+    .enabled& { opacity: 1; }
+    @media @tablet-md {
+      bottom: 5rem;
+    }
+    @media @desktop-md {
+      bottom: 6rem;
+    }
   }
 }
