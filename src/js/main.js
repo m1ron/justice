@@ -69,6 +69,7 @@ $(document).ready(function () {
 			var that = this, animated;
 			disable();
 			//console.log('Delay ' + that.data('duration') + 'ms');
+			//console.log(that.data('duration'));
 			setTimeout(function () {
 				if (that.hasClass('paused')) {
 					animated = $('.with-animation', that).eq(0);
@@ -77,7 +78,7 @@ $(document).ready(function () {
 				} else {
 					enable.call(that);
 				}
-			}, that.data('duration'));
+			}, duration.animation);
 		}
 
 		function onOut(index) {
@@ -215,10 +216,10 @@ $(document).ready(function () {
 			});
 			Pace.on('done', function () {
 				setTimeout(function () {
+					body.removeClass('loading');
 					pace.remove();
-					body.removeClass('loading pace-done');
-					$.fn.fullpage.setAllowScrolling(true);
-				}, 310);
+					//$.fn.fullpage.setAllowScrolling(true);
+				}, 410);
 			});
 			Pace.start();
 		}

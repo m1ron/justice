@@ -191,7 +191,13 @@ module.exports = function (grunt) {
 					src: 'fastclick.js',
 					dest: src.js + 'vendor',
 					ext: '.min.js'
-				}]
+				},
+					{
+						expand: true,
+						cwd: src.js + 'vendor',
+						src: '*.min.js',
+						dest: src.js + 'vendor'
+					}]
 			}
 		},
 		watch: {

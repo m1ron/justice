@@ -62,8 +62,9 @@
 
   // GLOW EFFECT
   @keyframes glow {
-    0%, 100% { opacity: 1; }
+    0% { opacity: 1; }
     50% { opacity: 0; }
+    100% { opacity: 1; }
   }
   .glow {
     opacity: 0;
@@ -128,8 +129,9 @@
 
   // ARROW
   @keyframes bounce {
-    0%, 100% { transform: translate3d(0, 0, 0); }
+    0% { transform: translate3d(0, 0, 0); }
     50% { transform: translate3d(0, .25rem, 0); }
+    100% { transform: translate3d(0, 0, 0); }
   }
   &:before {
     .pseudo;
@@ -145,7 +147,8 @@
     background-size: contain;
     transition: opacity .6s ease;
     opacity: 0;
-    animation: bounce 1.6s infinite paused;
+    animation: bounce 1.6s infinite;
+    animation-play-state: paused;
     .enabled& { opacity: 1; animation-play-state: running; }
     @media @desktop-md {
       bottom: 2rem;
