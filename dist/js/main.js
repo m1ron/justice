@@ -25,14 +25,16 @@ var hammertime = new Hammer(document, {
 $(document).ready(function () {
 
 
-	/** Fullpage */
+	/** FULLPAGE */
 	$('.page').each(function () {
 
 		// ENABLE
 		function enable() {
 			this.addClass('enabled');
-			//console.log('Scrolling enabled');
-			$.fn.fullpage.setAllowScrolling(true);
+			if ($('body').hasClass('pace-done')) {
+				//console.log('Scrolling enabled');
+				$.fn.fullpage.setAllowScrolling(true);
+			}
 		}
 
 		// DISABLE
@@ -109,7 +111,7 @@ $(document).ready(function () {
 	});
 
 
-	/** Bars */
+	/** BARS */
 	$('.bars').each(function () {
 		/* Animate bars */
 		function animateBar() {
@@ -153,7 +155,7 @@ $(document).ready(function () {
 	});
 
 
-	/** System */
+	/** SYSTEM */
 	$('.system').each(function () {
 		var that = $(this);
 		$('.start, .finish', that).each(function () {
@@ -172,7 +174,7 @@ $(document).ready(function () {
 	});
 
 
-	/** System */
+	/** GRAPH */
 	$('.graph').each(function () {
 		var that = $(this), y = $('.axis-y', that), x = $('.axis-x', that);
 		$('<span/>').addClass('legend').text(y.data('legend')).appendTo(y);
@@ -189,4 +191,27 @@ $(document).ready(function () {
 			that.removeClass('animated');
 		});
 	});
+
+
+	/** LOADER */
+	(function () {
+		var body = $('body');
+		if (body.hasClass('loading')) {
+			var preloader = $('.preloader'), pace = $('.pace'), progress = $('.pace-progress');
+			Pace.on('start', function () {
+				progress.html('');
+				preloader.clone().appendTo('.pace-progress');
+				preloader.remove();
+			});
+			Pace.on('done', function () {
+				setTimeout(function () {
+					pace.remove();
+					body.removeClass('loading pace-done');
+					$.fn.fullpage.setAllowScrolling(true);
+				}, 310);
+			});
+			Pace.start();
+		}
+	})();
+
 });

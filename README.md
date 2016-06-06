@@ -4,17 +4,20 @@
 ###Technologies
 
 * HTML5
-* LESS/CSS
+* CSS/LESS/PostCSS
 * Javascript/jQuery
 * Grunt/Bower
 
 
 ###Components
 
-* Html5shiv
 * Normalize.css
-* Fastlick
 * jQuery
+* Fastclick
+* Hammer.js
+* Mousewheel.js
+* Pace
+* Fullpage.js
 
 
 ###Installation

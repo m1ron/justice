@@ -194,6 +194,67 @@ legend {
   margin-bottom: 0;
 }
 /* ==========================================================================
+   LOADER
+   ========================================================================== */
+.loading {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.loading:before {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1999;
+  background: #0078c1;
+  -webkit-transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.pace-done.loading:before {
+  opacity: 0;
+}
+.preloader {
+  display: none;
+}
+.pace {
+  width: 6rem;
+  height: 6rem;
+  -webkit-perspective: 12rem;
+          perspective: 12rem;
+}
+.pace .pace-progress {
+  width: 6rem !important;
+  height: 6rem;
+  border-radius: 0;
+  line-height: 2rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  background: none;
+  -webkit-transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  opacity: 1;
+}
+.pace .pace-progress .preloader {
+  width: auto;
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+.pace .pace-progress:after {
+  display: none;
+}
+.pace-inactive.pace .pace-progress {
+  display: block;
+  opacity: 0;
+}
+/* ==========================================================================
    HEADER
    ========================================================================== */
 .header {
@@ -1340,6 +1401,9 @@ legend {
   bottom: 0;
   text-align: center;
 }
+.footer .copyright .rights {
+  display: none;
+}
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
@@ -1445,8 +1509,8 @@ legend {
     -webkit-transform: translate3d(0, 2rem, 0);
     transform: translate3d(0, 2rem, 0);
   }
-  .footer .copyright br{
-    display: none;
+  .footer .copyright .rights{
+    display: inline;
   }
 }
 @media (min-width: 990px){

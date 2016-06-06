@@ -1,0 +1,57 @@
+/* ==========================================================================
+   LOADER
+   ========================================================================== */
+.loading {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &:before {
+    .pseudo;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1999;
+    background: @color-blue;
+    transition: opacity @duration-l;
+
+    .pace-done& { opacity: 0; }
+  }
+}
+.preloader { display: none; }
+.pace {
+  width: 6rem;
+  height: 6rem;
+  perspective: 12rem;
+
+  .pace-progress {
+    width: 6rem !important;
+    height: 6rem;
+    border-radius: 0;
+    line-height: 2rem;
+    font-family: @font-default;
+    font-weight: 400;
+    background: none;
+    transition: opacity @duration-l;
+    opacity: 1;
+
+    .preloader {
+      width: auto;
+      height: 100%;
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    &:after { display: none; }
+
+    .pace-inactive& {
+      display: block;
+      opacity: 0;
+    }
+  }
+}

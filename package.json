@@ -2,7 +2,7 @@
   "name": "justice",
   "version": "0.1.0",
   "description": "Responsive markup",
-  "main": "index.js",
+  "main": "index.html",
   "dependencies": {
     "bower": "^1.6.5",
     "grunt": "^0.4.5"

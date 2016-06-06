@@ -49,9 +49,11 @@ module.exports = function (grunt) {
 							src.vendor + 'html5shiv/dist/html5shiv.min.js',
 							src.vendor + 'jquery/dist/jquery.min.js',
 							src.vendor + 'fastclick/lib/fastclick.js',
-							src.vendor + 'hammerjs/hammer.min.js',
 							src.vendor + 'jquery-mousewheel/jquery.mousewheel.min.js',
-							src.vendor + 'fullpage.js/dist/jquery.fullpage.min.js'
+							src.vendor + 'hammerjs/hammer.min.js',
+							src.vendor + 'fullpage.js/dist/jquery.fullpage.min.js',
+							src.vendor + 'PACE/pace.min.js',
+							src.vendor + 'magnific-popup/dist/jquery.magnific-popup.min.js'
 						],
 						dest: src.js + 'vendor'
 					}, {
@@ -61,6 +63,14 @@ module.exports = function (grunt) {
 							src.vendor + 'fullpage.js/dist/jquery.fullpage.min.css'
 						],
 						dest: src.css + 'vendor'
+					}, {
+						expand: true,
+						flatten: true,
+						src: [
+							src.vendor + 'PACE/themes/blue/pace-theme-center-circle.css',
+							src.vendor + 'magnific-popup/dist/magnific-popup.css'
+						],
+						dest: src.css + 'temp'
 					}, {
 						expand: true,
 						flatten: true,
@@ -99,9 +109,11 @@ module.exports = function (grunt) {
 						src: [
 							src.js + 'custom.js',
 							src.js + 'vendor/fastclick.min.js',
-							src.js + 'vendor/hammer.min.js',
 							src.js + 'vendor/jquery.mousewheel.min.js',
-							src.js + 'vendor/jquery.fullpage.min.js'
+							src.js + 'vendor/hammer.min.js',
+							src.js + 'vendor/jquery.fullpage.min.js',
+							src.js + 'vendor/pace.min.js',
+							src.js + 'vendor/jquery.magnific-popup.min.js'
 						],
 						dest: src.js + 'plugins.js'
 					}, {
@@ -115,7 +127,8 @@ module.exports = function (grunt) {
 		},
 		cssmin: {
 			options: {
-				separator: '\n\n\n'
+				separator: '\n\n\n',
+				keepSpecialComments: 1
 			},
 			dist: {
 				files: [
@@ -125,6 +138,13 @@ module.exports = function (grunt) {
 						src: src.css + 'temp/*.css',
 						dest: src.css + 'vendor',
 						ext: '.min.css'
+					},
+					{
+						expand: true,
+						flatten: true,
+						src: src.css + 'vendor/jquery.fullpage.min.css',
+						dest: src.css + 'vendor',
+						ext: '.fullpage.min.css'
 					}
 				]
 			}

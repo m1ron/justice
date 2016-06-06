@@ -23,3 +23,8 @@
     }
   }
 }());
+
+// Place any jQuery/helper plugins in here.
+window.paceOptions = {
+  startOnPageLoad: false
+};
