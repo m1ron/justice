@@ -134,7 +134,8 @@
     display: block;
     position: absolute;
     top: 4rem;
-    right: 0;
+    right: -1rem;
+    z-index: 1;
     font-size: .9rem;
     line-height: 1.3rem;
     letter-spacing: -.01em;
@@ -201,6 +202,7 @@
     margin: 0 auto;
     list-style: none;
     position: relative;
+    z-index: 5;
     display: flex;
   }
 
@@ -333,8 +335,8 @@
 
     &:after {
       .pseudo;
-      width: 1.5rem;
-      height: 2.25rem;
+      width: 1rem;
+      height: 1.5rem;
       position: absolute;
       top: 0;
       z-index: 0;
@@ -342,6 +344,10 @@
       background-size: contain;
       transition: opacity @duration-system;
       transition-delay: inherit;
+      @media @tablet-sm {
+        width: 1.5rem;
+        height: 2.25rem;
+      }
     }
 
     &:nth-child(1) {
@@ -352,8 +358,18 @@
     }
     &:nth-child(2) {
       transform: rotate(4deg) translate3d(.6rem, -1.5rem, 0); transition-delay: .8s;
-      .trait { transform: translate3d(-2.2rem, 2.6rem, 0); }
-      .trait.last { transform: rotate(-4deg) translate3d(4rem, 3rem, 0); }
+      .trait {
+        transform: translate3d(-1.4rem, 2.2rem, 0);
+        @media @tablet-md {
+          transform: translate3d(-2.2rem, 2.6rem, 0);
+        }
+      }
+      .trait.last {
+        transform: rotate(-4deg) translate3d(3.5rem, 3.5rem, 0);
+        @media @tablet-md {
+          transform: rotate(-4deg) translate3d(4rem, 3rem, 0);
+        }
+      }
       .title { transform: translate3d(.2rem, -.9rem, 0); }
       &:after { top: auto; bottom: 0; right: 2.5rem; transform: scaleY(-1); }
     }
@@ -365,7 +381,12 @@
     }
     &:nth-child(4) {
       transform: rotate(7deg) translate3d(1.25rem, -.5rem, 0); transition-delay: 2.4s;
-      .trait { transform: translate3d(1.2rem, 1.6rem, 0); }
+      .trait {
+        transform: translate3d(1.2rem, 2.5rem, 0);
+        @media @tablet-md {
+          transform: translate3d(1.2rem, 1.6rem, 0);
+        }
+      }
       .title { transform: translate3d(.2rem, .1rem, 0); }
       &:after { top: 0; right: .8rem; }
     }
