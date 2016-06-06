@@ -31,13 +31,13 @@ $(document).ready(function () {
 		// ENABLE
 		function enable() {
 			this.addClass('enabled');
-			console.log('Scrolling enabled');
+			//console.log('Scrolling enabled');
 			$.fn.fullpage.setAllowScrolling(true);
 		}
 
 		// DISABLE
 		function disable() {
-			console.log('Scrolling disabled');
+			//console.log('Scrolling disabled');
 			$.fn.fullpage.setAllowScrolling(false);
 		}
 
@@ -61,11 +61,10 @@ $(document).ready(function () {
 			var that = this, animated;
 
 			disable();
-			console.log('Delay ' + that.data('duration') + 'ms');
+			//console.log('Delay ' + that.data('duration') + 'ms');
 
 			setTimeout(function () {
 				if (that.hasClass('paused')) {
-					console.log('scroll paused');
 					animated = $('.with-animation', that).eq(0);
 					html.on('mousewheel', wheel);
 					hammertime.on('swipe', wheel);
@@ -116,7 +115,6 @@ $(document).ready(function () {
 		function animateBar() {
 			this.css({"transform": "translate3d(0, " + (this.data('to') - this.data('from')) + "%, 0)"});
 			this.addClass('animated');
-			console.log('animateBar');
 		}
 
 		/* Animate values */
@@ -130,14 +128,12 @@ $(document).ready(function () {
 				that.text(current);
 				if (current === to) {
 					clearInterval(timer);
-					console.log('animation stopped');
 				}
 			}, step);
 		}
 
 		var that = $(this), numbers = $('.n', that), bars = $('.bar .b', that), years = $('.year', that);
 		that.off('animate').on('animate', function () {
-			console.log('animation started');
 			numbers.each(function (i) {
 				setTimeout(animateValue.bind($(this)), +(i * duration.bar * .75));
 			});
@@ -169,7 +165,6 @@ $(document).ready(function () {
 		});
 		that.off('animate').on('animate', function () {
 			that.addClass('animated');
-			console.log('animation started');
 			return false;
 		}).off('reset').on('reset', function () {
 			that.removeClass('animated');
@@ -180,7 +175,7 @@ $(document).ready(function () {
 	/** System */
 	$('.graph').each(function () {
 		var that = $(this), y = $('.axis-y', that), x = $('.axis-x', that);
-		$('<span/>').addClass('title').text(y.data('legend')).appendTo(y);
+		$('<span/>').addClass('legend').text(y.data('legend')).appendTo(y);
 		for (i = +y.data('from'); i >= +y.data('to'); i = i - 1000) {
 			$('<span/>').addClass('number').text(i).appendTo(y);
 		}
@@ -189,7 +184,6 @@ $(document).ready(function () {
 		}
 		that.off('animate').on('animate', function () {
 			that.addClass('animated');
-			console.log('animation started');
 			return false;
 		}).off('reset').on('reset', function () {
 			that.removeClass('animated');

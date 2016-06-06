@@ -602,6 +602,14 @@ legend {
   margin-left: auto;
   margin-right: auto;
 }
+.section-3 .fade {
+  opacity: 0;
+  -webkit-transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 3s;
+  transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 3s;
+}
+.animated.section-3 .fade {
+  opacity: 1;
+}
 /* ==========================================================================
    SECTION-4
    ========================================================================== */
@@ -1190,7 +1198,23 @@ legend {
   opacity: .5;
 }
 .graph .axis-y .legend {
-  display: none;
+  width: 10rem;
+  height: 1rem;
+  margin: auto;
+  position: absolute;
+  top: 10rem;
+  bottom: 0;
+  left: -1rem;
+  font-size: .8rem;
+  line-height: 1rem;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transform-origin: 0 100%;
+      -ms-transform-origin: 0 100%;
+          transform-origin: 0 100%;
 }
 .graph .axis-x {
   padding-left: 3rem;
@@ -1409,6 +1433,14 @@ legend {
   .bars .bar{
     height: 28vh;
   }
+  .footer{
+    height: 2rem;
+    -webkit-transform: translate3d(0, 2rem, 0);
+    transform: translate3d(0, 2rem, 0);
+  }
+  .footer .copyright br{
+    display: none;
+  }
 }
 @media (min-width: 990px){
   .header .action .m{
@@ -1473,6 +1505,9 @@ legend {
   }
   .bars .bar{
     max-height: 12rem;
+  }
+  .footer .wrapper{
+    max-width: 1280px;
   }
   .footer .copyright{
     text-align: left;
