@@ -2,33 +2,41 @@
 /*global window, console, document, $, jQuery, google */
 
 
-
-/* Animation global settings */
+/** Global Settings */
 window.duration = {
 	animation: 3000,
 	bar: 2000,
 	page: 1000
 };
 
+
 /** Fastclick */
 FastClick.attach(document.body);
 
-/** Hammer */
+
+/** Hammer.js Settings */
 var hammertime = new Hammer(document, {
 	recognizers: [[Hammer.Swipe, {direction: Hammer.DIRECTION_ALL}]]
 });
 
 
-/**
- * On document ready
- */
+/** Magnific Popup Settings */
+$.extend(true, $.magnificPopup.defaults, {
+	closeMarkup: '<span title="%title%" class="mfp-close">x</span>',
+	gallery: {arrowMarkup: '<div title="%title%" class="mfp-arrow mfp-arrow-%dir%"></div>'},
+	settings: {cache: false},
+	mainClass: 'mfp-zoom-in',
+	removalDelay: 600,
+	midClick: true,
+	autoFocusLast: false
+});
+
+
+/** On document ready */
 $(document).ready(function () {
 
-
-	/** FULLPAGE */
+	/** Fullpage.js */
 	$('.page').each(function () {
-
-		// ENABLE
 		function enable() {
 			this.addClass('enabled');
 			if ($('body').hasClass('pace-done')) {
@@ -37,13 +45,11 @@ $(document).ready(function () {
 			}
 		}
 
-		// DISABLE
 		function disable() {
 			//console.log('Scrolling disabled');
 			$.fn.fullpage.setAllowScrolling(false);
 		}
 
-		/** On section entry */
 		function onIn(index) {
 			function wheel(event) {
 				if (event.deltaY < 0) {
@@ -61,10 +67,8 @@ $(document).ready(function () {
 			}
 
 			var that = this, animated;
-
 			disable();
 			//console.log('Delay ' + that.data('duration') + 'ms');
-
 			setTimeout(function () {
 				if (that.hasClass('paused')) {
 					animated = $('.with-animation', that).eq(0);
@@ -76,14 +80,10 @@ $(document).ready(function () {
 			}, that.data('duration'));
 		}
 
-
-		/** On section leave */
 		function onOut(index) {
 			var that = this;
-
 			$.fn.fullpage.setAllowScrolling(false);
 			that.removeClass('enabled').removeClass('animated');
-
 			setTimeout(function () {
 				$('.with-animation', that).trigger('reset');
 			}, duration.page);
@@ -103,7 +103,6 @@ $(document).ready(function () {
 			}
 		});
 		disable();
-
 		$('.down', this).on('click', function (event) {
 			$.fn.fullpage.moveSectionDown();
 			event.preventDefault();
@@ -111,15 +110,13 @@ $(document).ready(function () {
 	});
 
 
-	/** BARS */
+	/** Bars */
 	$('.bars').each(function () {
-		/* Animate bars */
 		function animateBar() {
 			this.css({"transform": "translate3d(0, " + (this.data('to') - this.data('from')) + "%, 0)"});
 			this.addClass('animated');
 		}
 
-		/* Animate values */
 		function animateValue() {
 			var that = this, current = from = this.data('from'),
 				to = this.data('to'),
@@ -155,7 +152,7 @@ $(document).ready(function () {
 	});
 
 
-	/** SYSTEM */
+	/** System */
 	$('.system').each(function () {
 		var that = $(this);
 		$('.start, .finish', that).each(function () {
@@ -174,7 +171,7 @@ $(document).ready(function () {
 	});
 
 
-	/** GRAPH */
+	/** Graph */
 	$('.graph').each(function () {
 		var that = $(this), y = $('.axis-y', that), x = $('.axis-x', that);
 		$('<span/>').addClass('legend').text(y.data('legend')).appendTo(y);
@@ -193,7 +190,20 @@ $(document).ready(function () {
 	});
 
 
-	/** LOADER */
+	/** POPUP IMAGES */
+	$('.js-popup').magnificPopup({
+		callbacks: {
+			beforeOpen: function () {
+				$.fn.fullpage.setAllowScrolling(false);
+			},
+			afterClose: function () {
+				$.fn.fullpage.setAllowScrolling(true);
+			}
+		}
+	});
+
+
+	/** Pace Loader */
 	(function () {
 		var body = $('body');
 		if (body.hasClass('loading')) {
@@ -213,5 +223,4 @@ $(document).ready(function () {
 			Pace.start();
 		}
 	})();
-
 });
