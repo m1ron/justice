@@ -7,7 +7,8 @@ form, fieldset, legend {
   margin: 0;
   display: block;
 }
-/*** BUTTONS ***/
+
+/** BUTTONS */
 .button {
   padding: .5rem;
   border: .1rem solid @color-white;
@@ -24,13 +25,23 @@ form, fieldset, legend {
   user-select: none;
   backface-visibility: hidden;
   cursor: pointer;
-  &:hover { color: @color-black; text-decoration: none; background: @color-white; }
+
+  &:hover {
+    color: @color-black;
+    text-decoration: none;
+    background: @color-white;
+  }
 }
-/*** DEFAULT ***/
+
+/** DEFAULT */
 .form {
   &-group {
     margin-bottom: 1rem;
-    &:after { .clearfix; }
-    &:last-child { margin-bottom: 0; }
+    &:after {
+      .clearfix;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

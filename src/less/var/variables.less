@@ -1,7 +1,6 @@
 // ==========================================================================
 // VARIABLES
 // ========================================================================== */
-
 @w-mobile-xxs: 320px;
 @w-mobile-xs: 375px;
 @w-mobile-sm: 414px;
@@ -16,22 +15,22 @@
 
 @max-width: 1080px;
 
-@portrait: ~"(orientation: portrait)";
-@landscape: ~"(orientation: landscape)";
+@portrait: e('(orientation: portrait)');
+@landscape: e('(orientation: landscape)');
 
-@mobile-old: ~"(max-width: 350px) and @{portrait}, (max-width: @{w-mobile-md}) and @{landscape}";
-@mobile-landscape: ~ "@{landscape} and (max-width: @{w-tablet-sm})";
-@tablet-landscape: ~ "@{landscape} and (max-width: 1024px)";
-@mobile-xs: ~"(min-width: @{w-mobile-xs})";
-@mobile-sm: ~"(min-width: @{w-mobile-sm})";
-@mobile-md: ~"(min-width: @{w-mobile-md})";
-@mobile-lg: ~"(min-width: @{w-mobile-lg})";
-@tablet-sm: ~"(min-width: @{w-tablet-sm})";
-@tablet-md: ~"(min-width: @{w-tablet-md})";
-@desktop-sm: ~"(min-width: @{w-desktop-sm})";
-@desktop-md: ~"(min-width: @{w-desktop-md})";
-@desktop-lg: ~"(min-width: @{w-desktop-lg})";
-@desktop-xl: ~"(min-width: @{w-desktop-xl})";
+@mobile-old: e('(max-width: 350px) and @{portrait}, (max-width: @{w-mobile-md}) and @{landscape}');
+@mobile-landscape: e('@{landscape} and (max-width: @{w-tablet-sm})');
+@tablet-landscape: e('@{landscape} and (max-width: 1024px)');
+@mobile-xs: e('(min-width: @{w-mobile-xs})');
+@mobile-sm: e('(min-width: @{w-mobile-sm})');
+@mobile-md: e('(min-width: @{w-mobile-md})');
+@mobile-lg: e('(min-width: @{w-mobile-lg})');
+@tablet-sm: e('(min-width: @{w-tablet-sm})');
+@tablet-md: e('(min-width: @{w-tablet-md})');
+@desktop-sm: e('(min-width: @{w-desktop-sm})');
+@desktop-md: e('(min-width: @{w-desktop-md})');
+@desktop-lg: e('(min-width: @{w-desktop-lg})');
+@desktop-xl: e('(min-width: @{w-desktop-xl})');
 
 @font-default: 'Open Sans', sans-serif;
 @font-heading: 'Montserrat', sans-serif;
@@ -48,9 +47,9 @@
 @margin-md: 1.5rem;
 @margin-lg: 1.6rem;
 
-@duration-s: .1s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-@duration: .2s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-@duration-l: .4s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+@duration-s: .1s cubic-bezier(.645, .045, .355, 1.000);
+@duration: .2s cubic-bezier(.645, .045, .355, 1.000);
+@duration-l: .4s cubic-bezier(.645, .045, .355, 1.000);
 
 @images: '../img';
 @fonts: '../fonts';

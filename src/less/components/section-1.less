@@ -4,16 +4,20 @@
 .section-1 {
   background-image: url('@{images}/section-1.jpg');
 
-  .fp-tableCell { padding-top: 5rem; }
+  .fp-tableCell {
+    padding-top: 5rem;
+  }
 
   // HEADING
   .heading {
     margin: 3rem -2rem;
     font-size: 6rem;
     line-height: 6rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -.02em;
     white-space: nowrap;
-    &:after { content: '.'; }
+    &:after {
+      content: '.';
+    }
     @media @tablet-sm {
       margin-left: auto;
       margin-right: auto;
@@ -28,7 +32,9 @@
   }
 
   @media @tablet-sm {
-    .italic br { display: none; }
+    .italic br {
+      display: none;
+    }
   }
 
   &:before {

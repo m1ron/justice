@@ -61,31 +61,57 @@ p, ul, ol, dl {
     margin-bottom: @margin-lg;
   }
 }
-:focus { outline: -webkit-focus-ring-color auto 0; }
+:focus {
+  outline: -webkit-focus-ring-color auto 0;
+}
 a {
-  color: @color-white; outline: none; text-decoration: none; transition: color @duration;
-  &:hover { outline: none; text-decoration: underline; }
+  color: @color-white;
+  outline: none;
+  text-decoration: none;
+  transition: color @duration;
+  &:hover {
+    outline: none;
+    text-decoration: underline;
+  }
 }
 figure {
   margin: @margin-md 0;
-  img { max-width: 100%; height: auto; display: block; }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
   @media @desktop-sm {
     margin: @margin-lg 0;
   }
 }
-audio, canvas, img, video { vertical-align: middle; }
+audio, canvas, img, video {
+  vertical-align: middle;
+}
 /*** HEADINGS ***/
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: @font-heading;
   letter-spacing: -.01em;
-  & + p { margin-top: 0; }
+  & + p {
+    margin-top: 0;
+  }
 }
 /* ==========================================================================
    GENERAL STYLES
    ========================================================================== */
-.hidden { display: none; }
-.pseudo { display: block; content: '\0020'; overflow: hidden; }
-.clearfix { display: table; content: '\0020'; clear: both; }
+.hidden {
+  display: none;
+}
+.pseudo {
+  display: block;
+  content: '\0020';
+  overflow: hidden;
+}
+.clearfix {
+  display: table;
+  content: '\0020';
+  clear: both;
+}
 /* ==========================================================================
    CONTAINERS
    ========================================================================== */
@@ -102,7 +128,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   max-width: @max-width;
   margin-right: 2rem;
   margin-left: 2rem;
-  &:after { .clearfix; }
+  &:after {
+    .clearfix;
+  }
 
   @media @desktop-sm {
     margin-left: auto;

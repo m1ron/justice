@@ -153,7 +153,7 @@ legend {
   margin: 0;
   display: block;
 }
-/*** BUTTONS ***/
+/** BUTTONS */
 .button {
   padding: .5rem;
   border: 0.1rem solid #fff;
@@ -181,7 +181,7 @@ legend {
   text-decoration: none;
   background: #fff;
 }
-/*** DEFAULT ***/
+/** DEFAULT */
 .form-group {
   margin-bottom: 1rem;
 }
@@ -447,8 +447,8 @@ legend {
 .header .contacts a:first-child {
   margin-left: 0;
 }
-.header .contacts a[href^="tel:"]:before,
-.header .contacts a[href^="mailto:"]:before {
+.header .contacts a[href^='tel:']:before,
+.header .contacts a[href^='mailto:']:before {
   display: block;
   content: '\0020';
   overflow: hidden;
@@ -464,16 +464,16 @@ legend {
   background-position: 0 0;
   background-size: auto 1.25rem;
 }
-.header .contacts a[href^="tel:"] {
+.header .contacts a[href^='tel:'] {
   cursor: default;
 }
-.header .contacts a[href^="tel:"]:before {
+.header .contacts a[href^='tel:']:before {
   background-position: 0 0;
 }
-.header .contacts a[href^="tel:"]:hover, .header .contacts a[href^="tel:"]:focus {
+.header .contacts a[href^='tel:']:hover, .header .contacts a[href^='tel:']:focus {
   text-decoration: none;
 }
-.header .contacts a[href^="mailto:"]:before {
+.header .contacts a[href^='mailto:']:before {
   background-position: -1.5rem 0;
 }
 .header .action {
@@ -916,7 +916,7 @@ legend {
 .system .arrow:after {
   display: block;
   content: '\0020';
-  width: 0.7rem;
+  width: .7rem;
   height: 1.25rem;
   overflow: hidden;
   position: absolute;
@@ -1534,7 +1534,7 @@ legend {
 .footer .copyright {
   width: 100%;
   margin: auto 0;
-  font-size: 0.667em;
+  font-size: .667em;
   line-height: 1.2rem;
   bottom: 0;
   text-align: center;

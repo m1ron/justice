@@ -18,10 +18,16 @@
     background: @color-blue;
     transition: opacity @duration-l;
 
-    .pace-done& { opacity: 0; }
+    .pace-done& {
+      opacity: 0;
+    }
   }
 }
-.preloader { display: none; }
+
+.preloader {
+  display: none;
+}
+
 .pace {
   width: 6rem;
   height: 6rem;
@@ -47,7 +53,9 @@
       z-index: 1;
     }
 
-    &:after { display: none; }
+    &:after {
+      display: none;
+    }
 
     .pace-inactive& {
       display: block;

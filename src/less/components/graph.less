@@ -122,7 +122,10 @@
         left: -.05rem;
         background: @color-white;
       }
-      &:after { left: auto; right: -.05rem; }
+      &:after {
+        left: auto;
+        right: -.05rem;
+      }
 
       &.line-1 {
         bottom: 1.05rem;
@@ -130,12 +133,18 @@
         transform: rotate(-26.5deg);
         transition: width 1s linear;
         opacity: 1;
-        .animated& { width: 6rem; }
+
+        .animated& {
+          width: 6rem;
+        }
 
         @media @desktop-md {
           bottom: 1.6rem;
           transform: rotate(-32deg);
-          .animated& { width: 6.4rem; }
+
+          .animated& {
+            width: 6.4rem;
+          }
         }
       }
 
@@ -144,11 +153,19 @@
         left: 8.5rem;
         transform: rotate(-60deg);
         transition: width 1.5s 1.01s linear, opacity .01s 1s linear;
-        .animated& { width: 11.4rem; opacity: 1; }
+
+        .animated& {
+          width: 11.4rem;
+          opacity: 1;
+        }
+
         @media @desktop-md {
           bottom: 4.65rem;
           transform: rotate(-68deg);
-          .animated& { width: 14.25rem; }
+
+          .animated& {
+            width: 14.25rem;
+          }
         }
       }
     }

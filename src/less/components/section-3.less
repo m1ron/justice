@@ -9,14 +9,16 @@
     margin: 2.2rem 0;
     font-size: 2.2rem;
     line-height: 2.2rem;
-    letter-spacing: -0.025em;
+    letter-spacing: -.025em;
     font-weight: normal;
   }
 
   .subheading {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    + p { margin-top: 0; }
+    + p {
+      margin-top: 0;
+    }
   }
 
   .small {
@@ -28,6 +30,8 @@
   .fade {
     opacity: 0;
     transition: opacity @duration-l 3s;
-    .animated& { opacity: 1; }
+    .animated& {
+      opacity: 1;
+    }
   }
 }
