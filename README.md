@@ -1,27 +1,25 @@
 # International Justice Mission Australia
-*Responsive markup*
 
-###Technologies
+_Responsive markup_
 
-* HTML5
-* CSS/LESS/PostCSS
-* Javascript/jQuery
-* Grunt/Bower
+## Technologies
 
+- HTML5
+- CSS/LESS/PostCSS
+- Javascript/jQuery
+- Grunt/Bower
 
-###Components
+## Components
 
-* Normalize.css
-* jQuery
-* Fastclick
-* Hammer.js
-* Mousewheel.js
-* Pace
-* Fullpage.js
+- Normalize.css
+- jQuery
+- Fastclick
+- Hammer.js
+- Mousewheel.js
+- Pace
+- Fullpage.js
 
-
-###Installation
-
+## Installation
 
 ```
 #!console
