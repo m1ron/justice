@@ -169,7 +169,7 @@ module.exports = function(grunt) {
             browsers: ['> 1%', 'last 2 versions', 'ie > 7']
           }),
           require('css-mqpacker')({
-            sort: true
+            //sort: true
           })
         ]
       },

@@ -80,17 +80,20 @@ $(document).ready(function() {
 			}
 
 			var that = this;
-			disable();
 			//console.log('Delay ' + that.data('duration') + 'ms');
 			//console.log(that.data('duration'));
+			disable();
 			setTimeout(function() {
+
 				if (that.hasClass('paused')) {
 					html.on('mousewheel', wheel);
 					hammertime.on('swipe', wheel);
 				} else {
 					enable.call(that);
 				}
+
 			}, duration.animation);
+			//enable.call(that);
 		}
 
 		function onOut(index) {

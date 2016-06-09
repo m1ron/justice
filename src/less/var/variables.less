@@ -14,12 +14,15 @@
 @w-desktop-lg: 1680px;
 @w-desktop-xl: 1920px;
 
-@h-xxs: 599px;
-@h-xs: 699px;
-@h-sm: 799px;
-@h-md: 899px;
-@h-lg: 999px;
-@h-xl: 1099px;
+@h-4xs: 400px;
+@h-3xs: 450px;
+@h-xxs: 500px;
+@h-xs: 600px;
+@h-sm: 700px;
+@h-md: 800px;
+@h-lg: 900px;
+@h-xl: 1000px;
+@h-xxl: 1100px;
 
 @max-width: 1080px;
 
@@ -29,6 +32,7 @@
 @mobile-old: e('(max-width: 350px) and @{portrait}, (max-width: @{w-mobile-md}) and @{landscape}');
 @mobile-landscape: e('@{landscape} and (max-width: @{w-tablet-sm})');
 @tablet-landscape: e('@{landscape} and (max-width: 1024px)');
+@mobile-xxs: e('(min-width: @{w-mobile-xxs})');
 @mobile-xs: e('(min-width: @{w-mobile-xs})');
 @mobile-sm: e('(min-width: @{w-mobile-sm})');
 @mobile-md: e('(min-width: @{w-mobile-md})');
@@ -41,12 +45,16 @@
 @desktop-lg: e('(min-width: @{w-desktop-lg})');
 @desktop-xl: e('(min-width: @{w-desktop-xl})');
 
-@height-xxs: e('(min-width: @{h-xxs})');
-@height-xs: e('(min-width: @{h-xs})');
-@height-sm: e('(min-width: @{h-sm})');
-@height-md: e('(min-width: @{h-md})');
-@height-lg: e('(min-width: @{h-lg})');
-@height-xl: e('(min-width: @{h-xl})');
+@height-4xs: e('(min-height: @{h-4xs})');
+@height-3xs: e('(min-height: @{h-3xs})');
+@height-xxs: e('(min-height: @{h-xxs})');
+@height-xs: e('(min-height: @{h-xs})');
+@height-sm: e('(min-height: @{h-sm})');
+@height-md: e('(min-height: @{h-md})');
+@height-lg: e('(min-height: @{h-lg})');
+@height-xl: e('(min-height: @{h-xl})');
+@height-xxl: e('(min-height: @{h-xxl})');
+@height-none: e('(max-height: none)');
 
 @font-default: 'Open Sans', sans-serif;
 @font-heading: 'Montserrat', sans-serif;

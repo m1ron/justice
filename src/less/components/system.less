@@ -47,6 +47,7 @@
     &:before {
       .pseudo;
       height: .05rem;
+      min-height: 1px;
       overflow: hidden;
       position: absolute;
       top: .55rem;
@@ -335,8 +336,11 @@
       transition-delay: inherit;
 
       @media @tablet-md {
-        font-size: 1rem;
+        font-size: .8rem;
         line-height: 1.2rem;
+      }
+      @media @desktop-sm {
+          font-size: 1rem;
       }
     }
 

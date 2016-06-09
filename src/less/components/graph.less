@@ -36,7 +36,13 @@
       display: block;
       position: relative;
 
-      @media @desktop-md, @desktop-xl and @height-lg {
+      /*
+      @media @desktop-xl and @height-xl {
+        height: 2.4rem;
+        line-height: 2.4rem;
+      }
+      */
+      @media @desktop-md {
         height: 3.2rem;
         line-height: 3.2rem;
       }
@@ -133,12 +139,20 @@
         transform: rotate(-26.5deg);
         transition: width 1s linear;
         opacity: 1;
-
         .animated& {
           width: 6rem;
         }
 
-        @media @desktop-md, @desktop-xl and @height-lg {
+        /*
+        @media @desktop-xl and @height-xl {
+          bottom: 1.05rem;
+          transform: rotate(-26.5deg);
+          .animated& {
+            width: 6rem;
+          }
+        }
+        */
+        @media @desktop-md {
           bottom: 1.6rem;
           transform: rotate(-32deg);
           .animated& {
@@ -157,7 +171,15 @@
           opacity: 1;
         }
 
-        @media @desktop-md, @desktop-xl and @height-lg {
+        /*
+        @media @desktop-xl and @height-xl {
+          bottom: 3.55rem;
+          transform: rotate(-60deg);
+          .animated& {
+            width: 11.4rem;
+          }
+        }*/
+        @media @desktop-md {
           bottom: 4.65rem;
           transform: rotate(-68deg);
           .animated& {

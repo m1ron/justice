@@ -17,9 +17,10 @@
 html {
   width: 100%;
   height: 100%;
+  min-height: 600px;
   padding: 0;
   margin: 0;
-  font: 68.75% 'Open Sans', sans-serif;
+  font: 50% 'Open Sans', sans-serif;
   color: #fff;
   letter-spacing: .03em;
   background: #000;
@@ -30,7 +31,7 @@ body {
   width: 100%;
   min-width: 320px;
   height: 100%;
-  min-height: 100%;
+  min-height: 600px;
   margin: 0 auto;
   position: fixed;
   top: 0;
@@ -721,6 +722,9 @@ legend {
   background: #000;
   opacity: .3;
 }
+.section .fp-scrollable {
+  z-index: 5;
+}
 .section .down {
   width: 20rem;
   margin: auto;
@@ -802,11 +806,6 @@ legend {
 .section-3 .subheading + p {
   margin-top: 0;
 }
-.section-3 .small {
-  max-width: 32rem;
-  margin-left: auto;
-  margin-right: auto;
-}
 .section-3 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 3s;
@@ -846,11 +845,6 @@ legend {
 .section-5 .subheading {
   font-size: 2rem;
   line-height: 2rem;
-}
-.section-5 .small {
-  max-width: 45rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 .section-5 .two {
   margin-top: 1.5rem;
@@ -912,6 +906,7 @@ legend {
   display: block;
   content: '\0020';
   height: .05rem;
+  min-height: 1px;
   overflow: hidden;
   position: absolute;
   top: .55rem;
@@ -1331,23 +1326,6 @@ legend {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  /*
-    @media @mobile-landscape {
-      height: 15vh;
-    }
-    @media @landscape and (max-height: 800px) {
-      height: 25vh;
-    }
-    @media @landscape and (max-height: 700px) {
-      height: 20vh;
-    }
-    @media @landscape and (max-height: 650px) {
-      height: 17vh;
-    }
-    @media @landscape and (max-height: 600px) {
-      height: 15vh;
-    }
-    */
 }
 .bars .bar .b {
   width: 100%;
@@ -1406,6 +1384,12 @@ legend {
   line-height: 2.4rem;
   display: block;
   position: relative;
+  /*
+      @media @desktop-xl and @height-xl {
+        height: 2.4rem;
+        line-height: 2.4rem;
+      }
+      */
 }
 .graph .axis-y .number:before {
   display: block;
@@ -1505,6 +1489,15 @@ legend {
   -webkit-transition: width 1s linear;
   transition: width 1s linear;
   opacity: 1;
+  /*
+        @media @desktop-xl and @height-xl {
+          bottom: 1.05rem;
+          transform: rotate(-26.5deg);
+          .animated& {
+            width: 6rem;
+          }
+        }
+        */
 }
 .animated.graph .lines .line.line-1 {
   width: 6rem;
@@ -1517,6 +1510,14 @@ legend {
           transform: rotate(-60deg);
   -webkit-transition: width 1.5s 1.01s linear, opacity .01s 1s linear;
   transition: width 1.5s 1.01s linear, opacity .01s 1s linear;
+  /*
+        @media @desktop-xl and @height-xl {
+          bottom: 3.55rem;
+          transform: rotate(-60deg);
+          .animated& {
+            width: 11.4rem;
+          }
+        }*/
 }
 .animated.graph .lines .line.line-2 {
   width: 11.4rem;
@@ -1568,9 +1569,204 @@ legend {
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
+@media (min-width: 320px) and (min-height: 450px){
+  html{
+    font-size: 56.3%;
+  }
+}
+@media (min-width: 320px) and (min-height: 500px){
+  html{
+    font-size: 62.5%;
+  }
+}
+@media (min-width: 320px) and (min-height: 600px){
+  html{
+    font-size: 68.75% ;
+  }
+}
+@media (min-width: 750px){
+  html{
+    line-height: 1.5em;
+  }
+  .header .contacts{
+    font-size: .8rem;
+  }
+  .section-1 .heading{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-1 .italic br{
+    display: none;
+  }
+  .section-3 .small{
+    max-width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-5 .small{
+    max-width: 45rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section-5 .two .button{
+    min-width: 18rem;
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+  }
+  .section-5 .two .button:first-child{
+    margin-right: 2rem;
+  }
+  .section-5 .two .button:last-child{
+    margin-left: 2rem;
+  }
+  .system .finish .title{
+    top: 1.3rem;
+  }
+  .system .item:after{
+    width: 1.5rem;
+    height: 2.25rem;
+  }
+  .footer{
+    height: 2rem;
+    -webkit-transform: translate3d(0, 2rem, 0);
+    transform: translate3d(0, 2rem, 0);
+  }
+  .footer .copyright .rights{
+    display: inline;
+  }
+}
+@media (min-width: 750px) and (min-height: 500px){
+  html{
+    font-size: 62.5%;
+  }
+}
+@media (min-width: 750px) and (min-height: 600px){
+  html{
+    font-size: 75%;
+  }
+}
+@media (min-width: 750px) and (min-height: 700px){
+  html{
+    font-size: 87.5%;
+  }
+}
+@media (min-width: 1280px){
+  html{
+    line-height: 1.6em;
+  }
+  p,
+  ul,
+  ol,
+  dl{
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+  }
+  figure{
+    margin: 1.6rem 0;
+  }
+  .header .wrapper{
+    max-width: 1280px;
+  }
+  .header .action{
+    right: 2rem;
+  }
+  .section:after{
+    display: none;
+  }
+  .system .item .title{
+    font-size: 1rem;
+  }
+  .footer .wrapper{
+    max-width: 1280px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .footer .copyright{
+    text-align: left;
+  }
+}
+@media (min-width: 1280px) and (min-height: 600px){
+  html{
+    font-size: 62.5%;
+  }
+}
+@media (min-width: 1280px) and (min-height: 700px){
+  html{
+    font-size: 75%;
+  }
+}
+@media (min-width: 1280px) and (min-height: 800px){
+  html{
+    font-size: 87.5%;
+  }
+}
+@media (min-width: 1280px) and (min-height: 900px){
+  html{
+    font-size: 100%;
+  }
+}
+@media (min-width: 1280px) and (min-height: 1000px){
+  html{
+    font-size: 112.5%;
+  }
+}
+@media (min-width: 1280px) and (min-height: 1100px){
+  html{
+    font-size: 125%;
+  }
+}
 @media (min-width: 375px){
   .page{
     overflow-x: visible;
+  }
+}
+@media (min-width: 1024px){
+  .wrapper{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 990px){
+  .popup{
+    padding: 3rem;
+  }
+  .header .action .m{
+    display: inline;
+  }
+  .section-5 .two .button:first-child{
+    margin-right: 6rem;
+  }
+  .section-5 .two .button:last-child{
+    margin-left: 6rem;
+  }
+  .system{
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+  .system .start{
+    font-size: 1.2rem;
+  }
+  .system .finish{
+    font-size: 1.2rem;
+  }
+  .system .item{
+    width: 7.6rem;
+  }
+  .system .item .title{
+    font-size: .8rem;
+    line-height: 1.2rem;
+  }
+  .system .item:nth-child(2) .trait{
+    -webkit-transform: translate3d(-2.2rem, 2.6rem, 0);
+    transform: translate3d(-2.2rem, 2.6rem, 0);
+  }
+  .system .item:nth-child(2) .trait.last{
+    -webkit-transform: rotate(-4deg) translate3d(4rem, 3rem, 0);
+    transform: rotate(-4deg) translate3d(4rem, 3rem, 0);
+  }
+  .system .item:nth-child(4) .trait{
+    -webkit-transform: translate3d(1.2rem, 1.6rem, 0);
+    transform: translate3d(1.2rem, 1.6rem, 0);
   }
 }
 @media (min-width: 568px){
@@ -1591,6 +1787,113 @@ legend {
     width: 6rem;
     padding-right: .4rem;
     padding-left: .4rem;
+  }
+}
+@media (max-width: 350px) and (orientation: portrait), (max-width: 568px) and (orientation: landscape){
+  .page{
+    height: auto !important;
+  }
+  .section-5 .heading{
+    margin-top: .8rem;
+    margin-bottom: .8rem;
+    font-size: 2.0rem;
+    line-height: 2.0rem;
+  }
+  .section-5 .subheading{
+    margin-top: .8rem;
+    margin-bottom: .8rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+  .section-5 p,
+  .section-5 .small{
+    margin-top: .7rem;
+    margin-bottom: .7rem;
+  }
+  .section-5 .two{
+    margin-top: .5rem;
+  }
+  .system .arrow:after{
+    top: .05rem;
+    right: -0.4rem;
+  }
+  .system .start .arrow{
+    right: .4rem;
+  }
+  .system .finish .arrow{
+    right: .4rem;
+  }
+}
+@media (orientation: landscape) and (max-width: 750px){
+  .section .heading{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .section .subheading{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .section p{
+    margin-top: .8rem;
+    margin-bottom: .8rem;
+  }
+  .section-1:before{
+    width: 1.7rem;
+    height: 5rem;
+    bottom: 1rem;
+  }
+  .system{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .bars{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .bars .title{
+    margin-bottom: .4rem;
+  }
+  .bars .bar{
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    max-height: 10rem;
+  }
+  .bars .bar{
+    height: 15vh;
+  }
+}
+@media (min-width: 1440px){
+  .section:before{
+    bottom: 2rem;
+  }
+  .section .down{
+    bottom: 6rem;
+  }
+  .bars{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .graph .axis-y .number{
+    height: 3.2rem;
+    line-height: 3.2rem;
+  }
+  .graph .lines .line.line-1{
+    bottom: 1.6rem;
+    -webkit-transform: rotate(-32deg);
+    -ms-transform: rotate(-32deg);
+    transform: rotate(-32deg);
+  }
+  .animated.graph .lines .line.line-1{
+    width: 6.4rem;
+  }
+  .graph .lines .line.line-2{
+    bottom: 4.65rem;
+    -webkit-transform: rotate(-68deg);
+    -ms-transform: rotate(-68deg);
+    transform: rotate(-68deg);
+  }
+  .animated.graph .lines .line.line-2{
+    width: 14.25rem;
   }
 }
 @media (min-width: 667px){
@@ -1629,245 +1932,29 @@ legend {
     left: 0;
   }
 }
-@media (min-width: 750px){
-  html{
-    font-size: 93.75%;
-    line-height: 1.5em;
-  }
-  .header .contacts{
-    font-size: .8rem;
-  }
-  .section-1 .heading{
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .section-1 .italic br{
-    display: none;
-  }
-  .section-5 .two .button{
-    min-width: 18rem;
-    font-size: 1.1rem;
-    line-height: 1.4rem;
-  }
-  .section-5 .two .button:first-child{
-    margin-right: 2rem;
-  }
-  .section-5 .two .button:last-child{
-    margin-left: 2rem;
-  }
-  .system .finish .title{
-    top: 1.3rem;
-  }
-  .system .item:after{
-    width: 1.5rem;
-    height: 2.25rem;
-  }
+@media (min-height: 700px){
   .bars .bar{
-    height: 28vh;
-  }
-  .footer{
-    height: 2rem;
-    -webkit-transform: translate3d(0, 2rem, 0);
-    transform: translate3d(0, 2rem, 0);
-  }
-  .footer .copyright .rights{
-    display: inline;
+    height: 20vh;
   }
 }
-@media (min-width: 990px){
-  .popup{
-    padding: 3rem;
-  }
-  .header .action .m{
-    display: inline;
-  }
-  .section-5 .two .button:first-child{
-    margin-right: 6rem;
-  }
-  .section-5 .two .button:last-child{
-    margin-left: 6rem;
-  }
-  .system{
-    padding-left: 8rem;
-    padding-right: 8rem;
-  }
-  .system .start{
-    font-size: 1.2rem;
-  }
-  .system .finish{
-    font-size: 1.2rem;
-  }
-  .system .item{
-    width: 7.6rem;
-  }
-  .system .item .title{
-    font-size: 1rem;
-    line-height: 1.2rem;
-  }
-  .system .item:nth-child(2) .trait{
-    -webkit-transform: translate3d(-2.2rem, 2.6rem, 0);
-    transform: translate3d(-2.2rem, 2.6rem, 0);
-  }
-  .system .item:nth-child(2) .trait.last{
-    -webkit-transform: rotate(-4deg) translate3d(4rem, 3rem, 0);
-    transform: rotate(-4deg) translate3d(4rem, 3rem, 0);
-  }
-  .system .item:nth-child(4) .trait{
-    -webkit-transform: translate3d(1.2rem, 1.6rem, 0);
-    transform: translate3d(1.2rem, 1.6rem, 0);
-  }
-}
-@media (min-width: 1024px){
-  .wrapper{
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-@media (min-width: 1280px){
-  html{
-    line-height: 1.6em;
-  }
-  p,
-  ul,
-  ol,
-  dl{
-    margin-top: 1.6rem;
-    margin-bottom: 1.6rem;
-  }
-  figure{
-    margin: 1.6rem 0;
-  }
-  .header .wrapper{
-    max-width: 1280px;
-  }
-  .header .action{
-    right: 2rem;
-  }
-  .section:after{
-    display: none;
-  }
+@media (max-width: 350px) and (orientation: portrait), (max-width: 568px) and (orientation: landscape) and (orientation: landscape) and (max-height: 800px){
   .bars .bar{
-    max-height: 12rem;
-  }
-  .footer .wrapper{
-    max-width: 1280px;
-  }
-  .footer .copyright{
-    text-align: left;
+    height: 20vh;
   }
 }
-@media (min-width: 1440px){
-  html{
-    font-size: 100%;
-  }
-  .section:before{
-    bottom: 2rem;
-  }
-  .section .down{
-    bottom: 6rem;
-  }
-  .bars{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
+@media (max-width: 350px) and (orientation: portrait), (max-width: 568px) and (orientation: landscape) and (orientation: landscape) and (max-height: 700px){
   .bars .bar{
-    max-height: 15rem;
+    height: 15vh;
   }
 }
-@media (min-width: 1440px), (min-width: 1920px) and (min-width: 999px){
-  .graph .axis-y .number{
-    height: 3.2rem;
-    line-height: 3.2rem;
-  }
-  .graph .lines .line.line-1{
-    bottom: 1.6rem;
-    -webkit-transform: rotate(-32deg);
-    -ms-transform: rotate(-32deg);
-    transform: rotate(-32deg);
-  }
-  .animated.graph .lines .line.line-1{
-    width: 6.4rem;
-  }
-  .graph .lines .line.line-2{
-    bottom: 4.65rem;
-    -webkit-transform: rotate(-68deg);
-    -ms-transform: rotate(-68deg);
-    transform: rotate(-68deg);
-  }
-  .animated.graph .lines .line.line-2{
-    width: 14.25rem;
-  }
-}
-@media (min-width: 1680px){}
-@media (min-width: 1920px) and (min-width: 1099px){
-  html{
-    font-size: 112.5% !important;
-  }
+@media (max-width: 350px) and (orientation: portrait), (max-width: 568px) and (orientation: landscape) and (orientation: landscape) and (max-height: 650px){
   .bars .bar{
-    max-height: 10rem;
+    height: 12vh;
   }
 }
-@media (min-width: 1920px){
-  html{
-    font-size: 125%;
-  }
-}
-@media (orientation: landscape) and (max-width: 750px){
-  .section .heading{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  .section .subheading{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  .section p{
-    margin-top: .8rem;
-    margin-bottom: .8rem;
-  }
-  .section-1:before{
-    width: 1.7rem;
-    height: 5rem;
-    bottom: 1rem;
-  }
-  .system{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-  .bars{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-  .bars .title{
-    margin-bottom: .4rem;
-  }
+@media (max-width: 350px) and (orientation: portrait), (max-width: 568px) and (orientation: landscape) and (orientation: landscape) and (max-height: 600px){
   .bars .bar{
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-    max-height: 10rem;
-  }
-}
-@media (orientation: landscape) and (max-width: 1024px){
-  .bars .bar{
-    max-height: 10rem;
-  }
-}
-@media (max-width: 350px) and (orientation: portrait), (max-width: 568px) and (orientation: landscape){
-  html{
-    font-size: 62.5%;
-  }
-  .page{
-    height: auto !important;
-  }
-  .system .arrow:after{
-    top: .05rem;
-    right: -0.4rem;
-  }
-  .system .start .arrow{
-    right: .4rem;
-  }
-  .system .finish .arrow{
-    right: .4rem;
+    height: 10vh;
   }
 }
 

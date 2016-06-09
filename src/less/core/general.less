@@ -8,35 +8,59 @@
 html {
   width: 100%;
   height: 100%;
+  min-height: 600px;
   padding: 0;
   margin: 0;
-  font: 68.75% @font-default;
+  font: 50% @font-default;
   color: @color-white;
   letter-spacing: .03em;
   background: @color-black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media @mobile-old {
-    font-size: 62.5%;
+  @media @mobile-xxs {
+    @media @height-3xs {
+      font-size: 56.3%;
+    }
+    @media @height-xxs {
+      font-size: 62.5%;
+    }
+    @media @height-xs {
+      font-size: 68.75% ;
+    }
   }
+
   @media @tablet-sm {
-    font-size: 93.75%;
     line-height: 1.5em;
+    @media @height-xxs {
+      font-size: 62.5%;
+    }
+    @media @height-xs {
+      font-size: 75%;
+    }
+    @media @height-sm {
+      font-size: 87.5%;
+    }
   }
   @media @desktop-sm {
     line-height: 1.6em;
-  }
-  @media @desktop-md {
-    font-size: 100%;
-  }
-  @media @desktop-lg {
-    //font-size: 112.5%;
-  }
-  @media @desktop-xl {
-    font-size: 125%;
+    @media @height-xs {
+      font-size: 62.5%;
+    }
+    @media @height-sm {
+      font-size: 75%;
+    }
+    @media @height-md {
+      font-size: 87.5%;
+    }
+    @media @height-lg {
+      font-size: 100%;
+    }
     @media @height-xl {
-        font-size: 112.5% !important;
+      font-size: 112.5%;
+    }
+    @media @height-xxl {
+      font-size: 125%;
     }
   }
 }
@@ -44,7 +68,7 @@ body {
   width: 100%;
   min-width: @w-mobile-xxs;
   height: 100%;
-  min-height: 100%;
+  min-height: 600px;
   margin: 0 auto;
   position: fixed;
   top: 0;
