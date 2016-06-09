@@ -17,15 +17,20 @@
     top: 0;
     right: 0;
     left: 0;
+    z-index: 10;
   }
 
   .axis-y {
     width: 3rem;
-    border-right: .05rem solid @color-blue;
+    border-right: 1px solid @color-blue;
     display: block;
     position: relative;
     z-index: 1;
     text-align: right;
+
+    @media @tablet-sm {
+        border-right-width:.05rem;
+    }
 
     .number {
       height: 2.4rem;
@@ -36,12 +41,6 @@
       display: block;
       position: relative;
 
-      /*
-      @media @desktop-xl and @height-xl {
-        height: 2.4rem;
-        line-height: 2.4rem;
-      }
-      */
       @media @desktop-md {
         height: 3.2rem;
         line-height: 3.2rem;
@@ -50,8 +49,8 @@
       &:before {
         .pseudo;
         width: 17rem;
-        height: .05rem;
-        border-top: .05rem dashed @color-blue;
+        height: 1px;
+        border-top: 1px dashed @color-blue;
         margin: auto;
         overflow: hidden;
         position: absolute;
@@ -59,6 +58,11 @@
         left: 100%;
         bottom: 0;
         opacity: .5;
+
+        @media @tablet-sm {
+            height: .05rem;
+            border-top-width:.05rem;
+        }
       }
     }
 
@@ -81,11 +85,15 @@
 
   .axis-x {
     padding-left: 3rem;
-    border-top: .05rem solid @color-blue;
+    border-top: 1px solid @color-blue;
     display: block;
     position: relative;
     z-index: 1;
     text-align: center;
+
+    @media @tablet-sm {
+        border-top-width: .05rem;
+    }
 
     .year {
       width: 5.1rem;
@@ -143,15 +151,6 @@
           width: 6rem;
         }
 
-        /*
-        @media @desktop-xl and @height-xl {
-          bottom: 1.05rem;
-          transform: rotate(-26.5deg);
-          .animated& {
-            width: 6rem;
-          }
-        }
-        */
         @media @desktop-md {
           bottom: 1.6rem;
           transform: rotate(-32deg);
@@ -171,14 +170,6 @@
           opacity: 1;
         }
 
-        /*
-        @media @desktop-xl and @height-xl {
-          bottom: 3.55rem;
-          transform: rotate(-60deg);
-          .animated& {
-            width: 11.4rem;
-          }
-        }*/
         @media @desktop-md {
           bottom: 4.65rem;
           transform: rotate(-68deg);

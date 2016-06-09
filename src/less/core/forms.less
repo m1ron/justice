@@ -11,7 +11,7 @@ form, fieldset, legend {
 /** BUTTONS */
 .button {
   padding: .5rem;
-  border: .1rem solid @color-white;
+  border: 1px solid @color-white;
   border-radius: .4rem;
   font: 1.1rem/1.4rem @font-default;
   letter-spacing: .02rem;
@@ -25,6 +25,10 @@ form, fieldset, legend {
   user-select: none;
   backface-visibility: hidden;
   cursor: pointer;
+
+  @media @tablet-sm {
+    border-width: .1rem;
+  }
 
   &:hover {
     color: @color-black;

@@ -43,18 +43,18 @@ $.extend(true, $.magnificPopup.defaults, {
 /** On document ready */
 $(document).ready(function() {
 
+	window.first = true;
+
 	/** Fullpage.js */
 	$('.page').each(function() {
 		function enable() {
 			this.addClass('enabled');
-			if ($('body').hasClass('pace-done')) {
-				//console.log('Scrolling enabled');
-				$.fn.fullpage.setAllowScrolling(true);
-			}
+			console.log('Scrolling enabled');
+			$.fn.fullpage.setAllowScrolling(true);
 		}
 
 		function disable() {
-			//console.log('Scrolling disabled');
+			console.log('Scrolling disabled');
 			$.fn.fullpage.setAllowScrolling(false);
 		}
 
@@ -83,17 +83,17 @@ $(document).ready(function() {
 			//console.log('Delay ' + that.data('duration') + 'ms');
 			//console.log(that.data('duration'));
 			disable();
-			setTimeout(function() {
-
-				if (that.hasClass('paused')) {
-					html.on('mousewheel', wheel);
-					hammertime.on('swipe', wheel);
-				} else {
-					enable.call(that);
-				}
-
-			}, duration.animation);
-			//enable.call(that);
+			var d = duration.animation;
+			if (!first) {
+				setTimeout(function() {
+					if (that.hasClass('paused')) {
+						html.on('mousewheel', wheel);
+						hammertime.on('swipe', wheel);
+					} else {
+						enable.call(that);
+					}
+				}, duration.animation);
+			}
 		}
 
 		function onOut(index) {
@@ -112,7 +112,7 @@ $(document).ready(function() {
 		that.fullpage({
 			css3: true,
 			easingcss3: 'cubic-bezier(0.645, 0.045, 0.355, 1.000)',
-			scrollOverflow: true,
+			//scrollOverflow: true,
 			scrollingSpeed: duration.page,
 			touchSensitivity: 10,
 			afterLoad: function(anchorLink, index) {
@@ -226,7 +226,7 @@ $(document).ready(function() {
 	});
 
 
-	/** POPUP IMAGES */
+	/** Popup images */
 	$('.js-popup').magnificPopup({
 		callbacks: {
 			beforeOpen: function() {
@@ -255,7 +255,10 @@ $(document).ready(function() {
 				setTimeout(function() {
 					body.removeClass('loading');
 					pace.remove();
-					//$.fn.fullpage.setAllowScrolling(true);
+					$('.section').eq(0).addClass('enabled');
+					console.log('First enabled');
+					$.fn.fullpage.setAllowScrolling(true);
+					first = false;
 				}, 410);
 			});
 			Pace.start();

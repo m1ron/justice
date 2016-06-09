@@ -157,7 +157,7 @@ legend {
 /** BUTTONS */
 .button {
   padding: .5rem;
-  border: 0.1rem solid #fff;
+  border: 1px solid #fff;
   border-radius: .4rem;
   font: 1.1rem/1.4rem 'Open Sans', sans-serif;
   letter-spacing: .02rem;
@@ -261,7 +261,7 @@ legend {
   content: '\0020';
   overflow: hidden;
   width: 1.25rem;
-  height: .1rem;
+  height: 1px;
   margin: auto;
   position: absolute;
   top: 0;
@@ -433,6 +433,7 @@ legend {
 .header .contacts {
   height: 1.5rem;
   margin: auto 0;
+  display: none;
   position: absolute;
   top: 0;
   left: 4rem;
@@ -483,13 +484,13 @@ legend {
   border: 1px solid #fff;
   border-radius: .5rem;
   margin: auto 0;
-  display: none;
+  display: inline-block;
   font-size: .9rem;
   line-height: 1.5rem;
   text-transform: uppercase;
   position: absolute;
   top: 0;
-  right: 1rem;
+  right: 0;
   bottom: 0;
   box-sizing: content-box;
   -webkit-transition: all 0.5s, color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -1367,10 +1368,11 @@ legend {
   top: 0;
   right: 0;
   left: 0;
+  z-index: 10;
 }
 .graph .axis-y {
   width: 3rem;
-  border-right: 0.05rem solid #0078c1;
+  border-right: 1px solid #0078c1;
   display: block;
   position: relative;
   z-index: 1;
@@ -1384,19 +1386,13 @@ legend {
   line-height: 2.4rem;
   display: block;
   position: relative;
-  /*
-      @media @desktop-xl and @height-xl {
-        height: 2.4rem;
-        line-height: 2.4rem;
-      }
-      */
 }
 .graph .axis-y .number:before {
   display: block;
   content: '\0020';
   width: 17rem;
-  height: .05rem;
-  border-top: 0.05rem dashed #0078c1;
+  height: 1px;
+  border-top: 1px dashed #0078c1;
   margin: auto;
   overflow: hidden;
   position: absolute;
@@ -1426,7 +1422,7 @@ legend {
 }
 .graph .axis-x {
   padding-left: 3rem;
-  border-top: 0.05rem solid #0078c1;
+  border-top: 1px solid #0078c1;
   display: block;
   position: relative;
   z-index: 1;
@@ -1489,15 +1485,6 @@ legend {
   -webkit-transition: width 1s linear;
   transition: width 1s linear;
   opacity: 1;
-  /*
-        @media @desktop-xl and @height-xl {
-          bottom: 1.05rem;
-          transform: rotate(-26.5deg);
-          .animated& {
-            width: 6rem;
-          }
-        }
-        */
 }
 .animated.graph .lines .line.line-1 {
   width: 6rem;
@@ -1510,14 +1497,6 @@ legend {
           transform: rotate(-60deg);
   -webkit-transition: width 1.5s 1.01s linear, opacity .01s 1s linear;
   transition: width 1.5s 1.01s linear, opacity .01s 1s linear;
-  /*
-        @media @desktop-xl and @height-xl {
-          bottom: 3.55rem;
-          transform: rotate(-60deg);
-          .animated& {
-            width: 11.4rem;
-          }
-        }*/
 }
 .animated.graph .lines .line.line-2 {
   width: 11.4rem;
@@ -1588,8 +1567,18 @@ legend {
   html{
     line-height: 1.5em;
   }
+  .button{
+    border-width: .1rem;
+  }
+  .mfp-close:before,
+  .mfp-close:after{
+    height: .1rem;
+  }
   .header .contacts{
     font-size: .8rem;
+  }
+  .header .action{
+    right: 1rem;
   }
   .section-1 .heading{
     margin-left: auto;
@@ -1625,6 +1614,16 @@ legend {
   .system .item:after{
     width: 1.5rem;
     height: 2.25rem;
+  }
+  .graph .axis-y{
+    border-right-width: .05rem;
+  }
+  .graph .axis-y .number:before{
+    height: .05rem;
+    border-top-width: .05rem;
+  }
+  .graph .axis-x{
+    border-top-width: .05rem;
   }
   .footer{
     height: 2rem;
@@ -1777,9 +1776,6 @@ legend {
     left: 5rem;
     text-align: left;
   }
-  .header .action{
-    display: block;
-  }
   .system .arrow:before{
     min-height: 1px;
   }
@@ -1787,6 +1783,45 @@ legend {
     width: 6rem;
     padding-right: .4rem;
     padding-left: .4rem;
+  }
+}
+@media (min-width: 667px){
+  .header .contacts{
+    display: block;
+  }
+  .system{
+    padding-left: 6.5rem;
+    padding-right: 6.5rem;
+  }
+  .system .start{
+    width: 6.5rem;
+    left: .2rem;
+  }
+  .system .start .title{
+    text-align: left;
+    top: .4rem;
+    right: auto;
+  }
+  .system .start .arrow{
+    margin: 0;
+    top: 1.5rem;
+    bottom: auto;
+  }
+  .system .finish{
+    width: 6.5rem;
+    right: .2rem;
+  }
+  .system .finish .title{
+    text-align: left;
+    top: 1.25rem;
+    right: auto;
+    left: 3.5rem;
+  }
+  .system .finish .arrow{
+    margin: 0;
+    top: 1.5rem;
+    right: auto;
+    left: 0;
   }
 }
 @media (max-width: 350px) and (orientation: portrait), (max-width: 568px) and (orientation: landscape){
@@ -1894,42 +1929,6 @@ legend {
   }
   .animated.graph .lines .line.line-2{
     width: 14.25rem;
-  }
-}
-@media (min-width: 667px){
-  .system{
-    padding-left: 6.5rem;
-    padding-right: 6.5rem;
-  }
-  .system .start{
-    width: 6.5rem;
-    left: .2rem;
-  }
-  .system .start .title{
-    text-align: left;
-    top: .4rem;
-    right: auto;
-  }
-  .system .start .arrow{
-    margin: 0;
-    top: 1.5rem;
-    bottom: auto;
-  }
-  .system .finish{
-    width: 6.5rem;
-    right: .2rem;
-  }
-  .system .finish .title{
-    text-align: left;
-    top: 1.25rem;
-    right: auto;
-    left: 3.5rem;
-  }
-  .system .finish .arrow{
-    margin: 0;
-    top: 1.5rem;
-    right: auto;
-    left: 0;
   }
 }
 @media (min-height: 700px){
