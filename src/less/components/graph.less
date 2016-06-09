@@ -36,7 +36,7 @@
       display: block;
       position: relative;
 
-      @media @desktop-md {
+      @media @desktop-md, @desktop-xl and @height-lg {
         height: 3.2rem;
         line-height: 3.2rem;
       }
@@ -138,10 +138,9 @@
           width: 6rem;
         }
 
-        @media @desktop-md {
+        @media @desktop-md, @desktop-xl and @height-lg {
           bottom: 1.6rem;
           transform: rotate(-32deg);
-
           .animated& {
             width: 6.4rem;
           }
@@ -153,16 +152,14 @@
         left: 8.5rem;
         transform: rotate(-60deg);
         transition: width 1.5s 1.01s linear, opacity .01s 1s linear;
-
         .animated& {
           width: 11.4rem;
           opacity: 1;
         }
 
-        @media @desktop-md {
+        @media @desktop-md, @desktop-xl and @height-lg {
           bottom: 4.65rem;
           transform: rotate(-68deg);
-
           .animated& {
             width: 14.25rem;
           }

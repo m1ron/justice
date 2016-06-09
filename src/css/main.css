@@ -166,8 +166,8 @@ legend {
   white-space: nowrap;
   display: inline-block;
   background: none;
-  -webkit-transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition: color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -621,6 +621,12 @@ legend {
   opacity: 0 !important;
   -webkit-transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
   transition: opacity 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
+.section .scroll a {
+  cursor: pointer;
+}
+.section .scroll a:hover, .section .scroll a:focus {
+  text-decoration: none;
 }
 .section .heading {
   margin: 1.6rem auto;
@@ -1325,6 +1331,23 @@ legend {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  /*
+    @media @mobile-landscape {
+      height: 15vh;
+    }
+    @media @landscape and (max-height: 800px) {
+      height: 25vh;
+    }
+    @media @landscape and (max-height: 700px) {
+      height: 20vh;
+    }
+    @media @landscape and (max-height: 650px) {
+      height: 17vh;
+    }
+    @media @landscape and (max-height: 600px) {
+      height: 15vh;
+    }
+    */
 }
 .bars .bar .b {
   width: 100%;
@@ -1694,6 +1717,12 @@ legend {
     transform: translate3d(1.2rem, 1.6rem, 0);
   }
 }
+@media (min-width: 1024px){
+  .wrapper{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 @media (min-width: 1280px){
   html{
     line-height: 1.6em;
@@ -1707,10 +1736,6 @@ legend {
   }
   figure{
     margin: 1.6rem 0;
-  }
-  .wrapper{
-    margin-left: auto;
-    margin-right: auto;
   }
   .header .wrapper{
     max-width: 1280px;
@@ -1748,6 +1773,8 @@ legend {
   .bars .bar{
     max-height: 15rem;
   }
+}
+@media (min-width: 1440px), (min-width: 1920px) and (min-width: 999px){
   .graph .axis-y .number{
     height: 3.2rem;
     line-height: 3.2rem;
@@ -1772,6 +1799,14 @@ legend {
   }
 }
 @media (min-width: 1680px){}
+@media (min-width: 1920px) and (min-width: 1099px){
+  html{
+    font-size: 112.5% !important;
+  }
+  .bars .bar{
+    max-height: 10rem;
+  }
+}
 @media (min-width: 1920px){
   html{
     font-size: 125%;
@@ -1811,8 +1846,10 @@ legend {
     margin-bottom: .5rem;
     max-height: 10rem;
   }
+}
+@media (orientation: landscape) and (max-width: 1024px){
   .bars .bar{
-    height: 15vh;
+    max-height: 10rem;
   }
 }
 @media (max-width: 350px) and (orientation: portrait), (max-width: 568px) and (orientation: landscape){
@@ -1831,31 +1868,6 @@ legend {
   }
   .system .finish .arrow{
     right: .4rem;
-  }
-}
-@media (orientation: landscape) and (max-width: 1024px){
-  .bars .bar{
-    max-height: 10rem;
-  }
-}
-@media (orientation: landscape) and (max-height: 800px){
-  .bars .bar{
-    height: 25vh;
-  }
-}
-@media (orientation: landscape) and (max-height: 700px){
-  .bars .bar{
-    height: 20vh;
-  }
-}
-@media (orientation: landscape) and (max-height: 650px){
-  .bars .bar{
-    height: 17vh;
-  }
-}
-@media (orientation: landscape) and (max-height: 600px){
-  .bars .bar{
-    height: 15vh;
   }
 }
 

@@ -50,6 +50,7 @@ module.exports = function(grunt) {
             src.vendor + 'fastclick/lib/fastclick.js',
             src.vendor + 'jquery-mousewheel/jquery.mousewheel.min.js',
             src.vendor + 'hammerjs/hammer.min.js',
+            src.vendor + 'fullpage.js/vendors/scrolloverflow.min.js',
             src.vendor + 'fullpage.js/dist/jquery.fullpage.min.js',
             src.vendor + 'PACE/pace.min.js',
             src.vendor + 'magnific-popup/dist/jquery.magnific-popup.min.js'
@@ -106,6 +107,7 @@ module.exports = function(grunt) {
             src.js + 'vendor/fastclick.min.js',
             src.js + 'vendor/jquery.mousewheel.min.js',
             src.js + 'vendor/hammer.min.js',
+            src.js + 'vendor/scrolloverflow.min.js',
             src.js + 'vendor/jquery.fullpage.min.js',
             src.js + 'vendor/pace.min.js',
             src.js + 'vendor/jquery.magnific-popup.min.js'
