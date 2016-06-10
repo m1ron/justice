@@ -194,6 +194,34 @@ legend {
 .form-group:last-child {
   margin-bottom: 0;
 }
+/** GIVESMART */
+.givesmart {
+  padding: .5rem;
+  border: 1px solid #fff;
+  border-radius: .4rem;
+  font: 1.1rem/1.4rem 'Open Sans', sans-serif;
+  letter-spacing: .02rem;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-block;
+  background: #0078c1;
+  -webkit-transition: color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
+.givesmart:hover, .givesmart:focus {
+  color: #fff;
+  text-decoration: none;
+  background: none;
+}
 /* ==========================================================================
    MAGNIFIC POPUP
    ========================================================================== */
@@ -512,7 +540,7 @@ legend {
   font-size: 1rem;
   line-height: 2rem;
 }
-.header .action .m {
+.m {
   display: none;
 }
 /* ==========================================================================
@@ -613,8 +641,8 @@ legend {
   opacity: 0;
   -webkit-transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: opacity 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
-  -webkit-animation: glow 2s 1s infinite;
-          animation: glow 2s 1s infinite;
+  -webkit-animation: glow 3s 1s infinite;
+          animation: glow 3s 1s infinite;
 }
 .active.section .glow {
   opacity: 1;
@@ -636,9 +664,9 @@ legend {
   line-height: 3.2rem;
 }
 .section .subheading {
-  max-width: 50rem;
-  margin: 1.6rem auto;
-  font-size: 1.2rem;
+  max-width: 55rem;
+  margin: 1rem auto;
+  font-size: 1rem;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: -0.02em;
 }
@@ -646,14 +674,14 @@ legend {
   font-weight: inherit;
 }
 .section .italic {
-  font-size: .9rem;
+  font-size: 1rem;
   font-style: italic;
 }
 .section .small {
   margin-top: 1.2rem;
   margin-bottom: 1.2rem;
-  font-size: .8rem;
-  line-height: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.4rem;
 }
 @-webkit-keyframes bounce {
   0% {
@@ -792,13 +820,15 @@ legend {
 .section-3 {
   background-image: url('../img/section-3.jpg');
   background-position: right center;
-}
-.section-3 .heading {
-  margin: 2.2rem 0;
-  font-size: 2.2rem;
-  line-height: 2.2rem;
-  letter-spacing: -0.025em;
-  font-weight: normal;
+  /*
+  .heading {
+    margin: 2.2rem 0;
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+    letter-spacing: -.025em;
+    font-weight: normal;
+  }
+  */
 }
 .section-3 .subheading {
   margin-top: 1rem;
@@ -1174,8 +1204,8 @@ legend {
           transform: rotate(-12deg) translate3d(0.4rem, 0, 0);
 }
 .system .item:nth-child(1) .trait {
-  -webkit-transform: rotate(2deg) translate3d(-1.5rem, 1.1rem, 0);
-          transform: rotate(2deg) translate3d(-1.5rem, 1.1rem, 0);
+  -webkit-transform: rotate(2deg) translate3d(-1.5rem, 2rem, 0);
+          transform: rotate(2deg) translate3d(-1.5rem, 2rem, 0);
 }
 .system .item:nth-child(1) .title {
   -webkit-transform: translate3d(-0.2rem, 0.2rem, 0);
@@ -1191,8 +1221,8 @@ legend {
           transition-delay: .8s;
 }
 .system .item:nth-child(2) .trait {
-  -webkit-transform: translate3d(-1.4rem, 2.2rem, 0);
-          transform: translate3d(-1.4rem, 2.2rem, 0);
+  -webkit-transform: translate3d(-1rem, 2.2rem, 0);
+          transform: translate3d(-1rem, 2.2rem, 0);
 }
 .system .item:nth-child(2) .trait.last {
   -webkit-transform: rotate(-4deg) translate3d(3.5rem, 3.5rem, 0);
@@ -1217,8 +1247,8 @@ legend {
           transition-delay: 1.6s;
 }
 .system .item:nth-child(3) .trait {
-  -webkit-transform: translate3d(1.7rem, 1.3rem, 0);
-          transform: translate3d(1.7rem, 1.3rem, 0);
+  -webkit-transform: translate3d(0.5rem, 1.3rem, 0);
+          transform: translate3d(0.5rem, 1.3rem, 0);
 }
 .system .item:nth-child(3) .title {
   -webkit-transform: translate3d(-0.1rem, 0.15rem, 0);
@@ -1550,17 +1580,17 @@ legend {
    ========================================================================== */
 @media (min-width: 320px) and (min-height: 450px){
   html{
-    font-size: 56.3%;
+    font-size: 70%;
   }
 }
 @media (min-width: 320px) and (min-height: 500px){
   html{
-    font-size: 62.5%;
+    font-size: 75%;
   }
 }
 @media (min-width: 320px) and (min-height: 600px){
   html{
-    font-size: 68.75% ;
+    font-size: 80% ;
   }
 }
 @media (min-width: 750px){
@@ -1588,7 +1618,7 @@ legend {
     display: none;
   }
   .section-3 .small{
-    max-width: 32rem;
+    max-width: 45rem;
     margin-left: auto;
     margin-right: auto;
   }
@@ -1636,12 +1666,12 @@ legend {
 }
 @media (min-width: 750px) and (min-height: 500px){
   html{
-    font-size: 62.5%;
+    font-size: 70%;
   }
 }
 @media (min-width: 750px) and (min-height: 600px){
   html{
-    font-size: 75%;
+    font-size: 80%;
   }
 }
 @media (min-width: 750px) and (min-height: 700px){
@@ -1686,17 +1716,17 @@ legend {
 }
 @media (min-width: 1280px) and (min-height: 600px){
   html{
-    font-size: 62.5%;
+    font-size: 75%;
   }
 }
 @media (min-width: 1280px) and (min-height: 700px){
   html{
-    font-size: 75%;
+    font-size: 87.5%;
   }
 }
 @media (min-width: 1280px) and (min-height: 800px){
   html{
-    font-size: 87.5%;
+    font-size: 90%;
   }
 }
 @media (min-width: 1280px) and (min-height: 900px){
@@ -1729,7 +1759,7 @@ legend {
   .popup{
     padding: 3rem;
   }
-  .header .action .m{
+  .m{
     display: inline;
   }
   .section-5 .two .button:first-child{
@@ -1756,16 +1786,16 @@ legend {
     line-height: 1.2rem;
   }
   .system .item:nth-child(2) .trait{
-    -webkit-transform: translate3d(-2.2rem, 2.6rem, 0);
-    transform: translate3d(-2.2rem, 2.6rem, 0);
+    -webkit-transform: translate3d(-1rem, 2.6rem, 0);
+    transform: translate3d(-1rem, 2.6rem, 0);
   }
   .system .item:nth-child(2) .trait.last{
-    -webkit-transform: rotate(-4deg) translate3d(4rem, 3rem, 0);
-    transform: rotate(-4deg) translate3d(4rem, 3rem, 0);
+    -webkit-transform: rotate(-4deg) translate3d(3.5rem, 3.5rem, 0);
+    transform: rotate(-4deg) translate3d(3.5rem, 3.5rem, 0);
   }
   .system .item:nth-child(4) .trait{
-    -webkit-transform: translate3d(1.2rem, 1.6rem, 0);
-    transform: translate3d(1.2rem, 1.6rem, 0);
+    -webkit-transform: translate3d(1.2rem, 2.5rem, 0);
+    transform: translate3d(1.2rem, 2.5rem, 0);
   }
 }
 @media (min-width: 568px){

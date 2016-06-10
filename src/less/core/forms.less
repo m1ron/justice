@@ -7,7 +7,6 @@ form, fieldset, legend {
   margin: 0;
   display: block;
 }
-
 /** BUTTONS */
 .button {
   padding: .5rem;
@@ -36,7 +35,6 @@ form, fieldset, legend {
     background: @color-white;
   }
 }
-
 /** DEFAULT */
 .form {
   &-group {
@@ -47,5 +45,34 @@ form, fieldset, legend {
     &:last-child {
       margin-bottom: 0;
     }
+  }
+}
+/** GIVESMART */
+.givesmart {
+  padding: .5rem;
+  border: 1px solid #fff;
+  border-radius: .4rem;
+  font: 1.1rem/1.4rem 'Open Sans', sans-serif;
+  letter-spacing: .02rem;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-block;
+  background: #0078c1;
+  -webkit-transition: color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+    background: none;
   }
 }
