@@ -49,12 +49,12 @@ $(document).ready(function() {
 	$('.page').each(function() {
 		function enable() {
 			this.addClass('enabled');
-			console.log('Scrolling enabled');
+			//console.log('Scrolling enabled');
 			$.fn.fullpage.setAllowScrolling(true);
 		}
 
 		function disable() {
-			console.log('Scrolling disabled');
+			//console.log('Scrolling disabled');
 			$.fn.fullpage.setAllowScrolling(false);
 		}
 
