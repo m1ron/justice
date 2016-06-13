@@ -1,6 +1,7 @@
 // ==========================================================================
 // VARIABLES
 // ========================================================================== */
+@w-mobile-min: 270px;
 @w-mobile-xxs: 320px;
 @w-mobile-xs: 375px;
 @w-mobile-sm: 414px;
@@ -29,6 +30,7 @@
 @portrait: e('(orientation: portrait)');
 @landscape: e('(orientation: landscape)');
 
+@mobile-oldest: e('(max-width: 319px) and @{portrait}');
 @mobile-old: e('(max-width: 350px) and @{portrait}, (max-width: @{w-mobile-md}) and @{landscape}');
 @mobile-landscape: e('@{landscape} and (max-width: @{w-tablet-sm})');
 @tablet-landscape: e('@{landscape} and (max-width: 1024px)');
