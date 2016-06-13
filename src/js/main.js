@@ -41,12 +41,12 @@ $.extend(true, $.magnificPopup.defaults, {
 
 
 /** On document ready */
-$(document).ready(function() {
+$(document).ready(function () {
 
 	window.first = true;
 
 	/** Fullpage.js */
-	$('.page').each(function() {
+	$('.page').each(function () {
 		function enable() {
 			this.addClass('enabled');
 			//console.log('Scrolling enabled');
@@ -62,7 +62,7 @@ $(document).ready(function() {
 			var that = this;
 			that.addClass('animated');
 			$('.with-animation', that).eq(0).trigger('animate');
-			setTimeout(function() {
+			setTimeout(function () {
 				enable.call(that);
 			}, +that.data('duration'));
 		}
@@ -85,7 +85,7 @@ $(document).ready(function() {
 			disable();
 			var d = duration.animation;
 			if (!first) {
-				setTimeout(function() {
+				setTimeout(function () {
 					if (that.hasClass('paused')) {
 						html.on('mousewheel', wheel);
 						hammertime.on('swipe', wheel);
@@ -100,7 +100,7 @@ $(document).ready(function() {
 			var that = this;
 			$.fn.fullpage.setAllowScrolling(false);
 			that.removeClass('enabled').removeClass('animated');
-			setTimeout(function() {
+			setTimeout(function () {
 				$('.with-animation', that).trigger('reset');
 			}, duration.page);
 		}
@@ -115,21 +115,21 @@ $(document).ready(function() {
 			//scrollOverflow: true,
 			scrollingSpeed: duration.page,
 			touchSensitivity: 10,
-			afterLoad: function(anchorLink, index) {
+			afterLoad: function (anchorLink, index) {
 				onIn.call(sections.eq(index - 1), index);
 			},
-			onLeave: function(index, nextIndex, direction) {
+			onLeave: function (index, nextIndex, direction) {
 				onOut.call(sections.eq(index - 1), index);
 			}
 		});
 		disable();
-		$('.next', this).on('click', function(event) {
+		$('.next', this).on('click', function (event) {
 			$.fn.fullpage.moveSectionDown();
 			event.preventDefault();
 		});
-		$('.section', this).each(function() {
+		$('.section', this).each(function () {
 			var that = $(this);
-			$('.go', this).on('click', function(event) {
+			$('.go', this).on('click', function (event) {
 				doAnimation.call(that);
 				event.preventDefault();
 			});
@@ -138,48 +138,51 @@ $(document).ready(function() {
 
 
 	/** Bars */
-	$('.bars').each(function() {
+	$('.bars').each(function () {
 		function animateBar() {
 			this.css({
+				"-webkit-transform": "translate3d(0, " + (this.data('to') - this.data('from')) + "%, 0)",
 				"transform": "translate3d(0, " + (this.data('to') - this.data('from')) + "%, 0)"
 			});
 			this.addClass('animated');
 		}
 
 		function animateValue() {
+			function doStep() {
+				current += increment;
+				that.text(current);
+				if (current !== to) {
+					setTimeout(doStep, step);
+				}
+			}
+
 			var that = this,
 				current = from = this.data('from'),
 				to = this.data('to'),
 				range = to - from,
 				increment = to > from ? 1 : -1,
 				step = Math.abs(Math.floor(duration.bar / range));
-			var timer = setInterval(function() {
-				current += increment;
-				that.text(current);
-				if (current === to) {
-					clearInterval(timer);
-				}
-			}, step);
+			setTimeout(doStep, step);
 		}
 
 		var that = $(this),
 			numbers = $('.n', that),
 			bars = $('.bar .b', that),
 			years = $('.year', that);
-		that.off('animate').on('animate', function() {
-			numbers.each(function(i) {
+		that.off('animate').on('animate', function () {
+			numbers.each(function (i) {
 				setTimeout(animateValue.bind($(this)), +(i * duration.bar * .75));
 			});
-			bars.each(function(i) {
+			bars.each(function (i) {
 				setTimeout(animateBar.bind($(this)), +(i * duration.bar * .75));
 			});
-			years.each(function(i) {
+			years.each(function (i) {
 				setTimeout(animateValue.bind($(this)), +(i * duration.bar * .75));
 			});
 			return false;
-		}).off('reset').on('reset', function() {
+		}).off('reset').on('reset', function () {
 			bars.removeClass('animated').removeAttr('style');
-			numbers.add(years).each(function() {
+			numbers.add(years).each(function () {
 				$(this).text($(this).data('from'));
 			});
 		});
@@ -187,26 +190,26 @@ $(document).ready(function() {
 
 
 	/** System */
-	$('.system').each(function() {
+	$('.system').each(function () {
 		var that = $(this);
-		$('.start, .finish', that).each(function() {
+		$('.start, .finish', that).each(function () {
 			$('<span/>').addClass('arrow').appendTo(this);
 		});
-		$('.list .item', that).each(function() {
+		$('.list .item', that).each(function () {
 			$('<span/>').addClass('lines').appendTo(this);
 			$('<span/>').addClass('outside').appendTo(this);
 		});
-		that.off('animate').on('animate', function() {
+		that.off('animate').on('animate', function () {
 			that.addClass('animated');
 			return false;
-		}).off('reset').on('reset', function() {
+		}).off('reset').on('reset', function () {
 			that.removeClass('animated');
 		});
 	});
 
 
 	/** Graph */
-	$('.graph').each(function() {
+	$('.graph').each(function () {
 		var that = $(this),
 			y = $('.axis-y', that),
 			x = $('.axis-x', that);
@@ -217,10 +220,10 @@ $(document).ready(function() {
 		for (i = +x.data('from'); i <= +x.data('to'); i = i + 1) {
 			$('<span/>').addClass('year').text(i).appendTo(x);
 		}
-		that.off('animate').on('animate', function() {
+		that.off('animate').on('animate', function () {
 			that.addClass('animated');
 			return false;
-		}).off('reset').on('reset', function() {
+		}).off('reset').on('reset', function () {
 			that.removeClass('animated');
 		});
 	});
@@ -229,10 +232,10 @@ $(document).ready(function() {
 	/** Popup images */
 	$('.js-popup').magnificPopup({
 		callbacks: {
-			beforeOpen: function() {
+			beforeOpen: function () {
 				$.fn.fullpage.setAllowScrolling(false);
 			},
-			afterClose: function() {
+			afterClose: function () {
 				$.fn.fullpage.setAllowScrolling(true);
 			}
 		}
@@ -240,23 +243,23 @@ $(document).ready(function() {
 
 
 	/** Pace Loader */
-	(function() {
+	(function () {
 		var body = $('body');
 		if (body.hasClass('loading')) {
 			var preloader = $('.preloader'),
 				pace = $('.pace'),
 				progress = $('.pace-progress');
-			Pace.on('start', function() {
+			Pace.on('start', function () {
 				progress.html('');
 				preloader.clone().appendTo('.pace-progress');
 				preloader.remove();
 			});
-			Pace.on('done', function() {
-				setTimeout(function() {
+			Pace.on('done', function () {
+				setTimeout(function () {
 					body.removeClass('loading');
 					pace.remove();
 					$('.section').eq(0).addClass('enabled');
-					console.log('First enabled');
+					//console.log('First enabled');
 					$.fn.fullpage.setAllowScrolling(true);
 					first = false;
 				}, 410);
